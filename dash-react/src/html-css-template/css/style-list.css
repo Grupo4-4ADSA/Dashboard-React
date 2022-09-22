@@ -1,0 +1,188 @@
+.box-list {
+    height: 41vh;
+    align-items: center;
+    width: 95%;
+    margin-right: 0 !important;
+}
+
+.list {
+    height: 32vh;
+    overflow-y: scroll;
+    width: 100%;
+    margin: auto;
+}
+
+.list li {
+    background-color: var(--grey-one);
+    color: #000000;
+    margin: 10px;
+    list-style-type: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.li-box-salas {
+    width: 17%;
+    height: 21vh;
+    float: left;
+    cursor: pointer;
+    box-shadow: 10px 10px 10px rgb(0 0 0 / 25%);
+}
+
+.list a {
+    color: var(--blue);
+}
+
+.title-lista {
+    background-color: #ffffff00 !important;
+}
+
+.organiza-lista {
+    width: 96%;
+    height: 56vh;
+}
+
+.table-lista th {
+    font-size: 14px;
+    overflow: hidden;
+    min-width: 180px;
+    height: 45px;
+    word-break: normal;
+}
+
+.table-lista td {
+    min-width: 182px;
+    height: 42px;
+}
+
+.menor {
+    min-width: 108px !important;
+}
+
+.maior {
+    min-width: 229px !important;
+}
+
+.organiza-lista .td-lista img {
+    height: 50%;
+}
+
+.organiza-lista .td-lista-editar-deletar button {
+    padding-left: 18px;
+}
+
+.organiza-lista .td-lista-editar-deletar .editar {
+    background: rgba(255, 255, 255, 0) url(../imagens/img-editar-deletar/edit.png) no-repeat 2% center;
+}
+
+.organiza-lista .td-lista-editar-deletar .deletar {
+    background: rgba(255, 255, 255, 0) url(../imagens/img-editar-deletar/trash.png) no-repeat 2% center;
+}
+
+/* Tabelas */
+
+.conteudo-chart button {
+    margin: 10px 0 10px 4% !important;
+    width: 14%;
+}
+
+.conteudo-chart image {
+    height: 100%;
+}
+
+.box-chart {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: 4%
+}
+
+.tg td {
+    border-color: var(--pure-black);
+    ;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    border-color: var(--pure-black);
+    ;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg .tg-grh6 {
+    background-color: var(--blue-dark);
+    ;
+    border-color: var(--pure-black);
+    ;
+    color: var(--off-white);
+    ;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+    color: var(--white);
+}
+
+.tg .tg-0pky {
+    border-color: inherit;
+    text-align: left;
+    vertical-align: top
+}
+
+.tg .tg-73oq {
+    border-color: var(--pure-black);
+    ;
+    text-align: left;
+    vertical-align: top
+}
+
+.tg .tg-0thz {
+    border-color: inherit;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom
+}
+
+.tg .tg-g7sd {
+    border-color: inherit;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle
+}
+
+.tg .tg-p7m4 {
+    background-color: var(--blue-dark);
+    border-color: var(--pure-black);
+    color: var(--off-white);
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+    color: var(--white);
+}
+
+.list-salas {
+    height: 72vh;
+    overflow-y: scroll;
+    width: 95%;
+    margin: auto;
+}

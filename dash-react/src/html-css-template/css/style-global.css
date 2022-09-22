@@ -1,0 +1,786 @@
+:root {
+    --blue: #20577D;
+    --blue-dark: #112D41;
+    --blue-dark2: #071b29;
+    --font-defaut: 'Readex Pro', normal;
+    --light-color: #f2f2f2;
+    --light-color-2: #8f8f8f;
+    --white: #ffffff;
+    --black-tranp: 10px 10px 10px rgb(0 0 0 / 25%);
+    --grey-one: #F0F0F0;
+    --grey-two: #BBBBBB;
+    --grey-three: #757575;
+    --dark-grey: #464646;
+
+    --color-graditent: rgb(32, 87, 125), linear-gradient(86deg, rgba(32, 87, 125, 1) 0%, rgba(93, 155, 197, 1) 100%);
+}
+
+body {
+    font-family: var(--font-defaut);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    height: 6vh;
+    font-family: var(--font-defaut);
+}
+
+.button-azul {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    box-shadow: var(--black-tranp);
+}
+
+.button-cinza {
+    background-color: var(--grey-one);
+    box-shadow: var(--black-tranp);
+}
+
+h1 {
+    margin-left: 10%;
+    margin-top: 0%;
+}
+
+h2 {
+    font-weight: 300;
+    font-family: var(--font-defaut);
+    font-style: normal;
+    margin: 0 0 1rem 0;
+    position: relative;
+    align-items: center;
+    margin-left: 44px;
+}
+
+h2::before {
+    content: '';
+    font-family: 'Readex Pro';
+    position: absolute;
+    height: 4px;
+    width: 10%;
+    bottom: -1px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--blue-dark) 50%,
+            rgba(172, 184, 191, 0) 97.71%);
+}
+
+.h2-titulo {
+    text-align: left;
+    margin-top: 50px;
+}
+
+h4 {
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--blue-dark);
+    font-family: var(--font-defaut);
+    margin: 5px 0 25px 0;
+}
+
+h5 {
+    margin: 2.5rem 0 1rem 0;
+}
+
+select {
+    background-color: var(--grey-one) !important;
+    height: 34px;
+    outline: none;
+    border: 1px solid var(--white);
+    appearance: none;
+    padding-left: 2px;
+    text-align: left;
+    width: 100%;
+    background: url(../imagens/seta-select.png) 96% / 5% no-repeat;
+}
+
+.btn {
+    width: 60%;
+    color: var(--white);
+    background: linear-gradient(94deg,  var(--blue-dark) 0%, rgba(167, 188, 201, 1) 100%);
+    border-radius: 50px;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+    font-family: var(--font-defaut);
+    font-weight: 500;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+}
+
+/* Login */
+.login-content {
+    display: flex;
+    min-height: 450px;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    margin-top: 15px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.login-img {
+    width: 60%;
+    margin: 0 30px 0 0;
+}
+
+.img-fundo-erro {
+    width: 80%;
+    float: right;
+}
+
+.erro404 {
+    width: 100%;
+}
+
+/* Formulario Login */
+.formulario {
+    width: 100%;
+    /* Animação */
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible !important;
+}
+
+.formulario h2 {
+    margin: 0 !important
+}
+
+/* Estilização de INPUT */
+.input-fild {
+    position: relative;
+}
+
+.input-fild input {
+    width: 90%;
+    height: 18px;
+    background: none;
+    margin: 20px 0 10px 0;
+    font-family: var(--font-defaut);
+    font-size: 0.9rem;
+    color: var(--dark-grey);
+    outline: 0;
+    border: solid var(--blue-dark) 0px;
+}
+
+.input-fild input::placeholder {
+    color: rgba(138, 138, 138, 0.733);
+    font-weight: 400;
+}
+
+.input-fild .underline::before {
+    content: "";
+    position: absolute;
+    height: 0.5px;
+    width: 100%;
+    left: 0;
+    background-color: rgb(92, 91, 91);
+    border-radius: 10px;
+}
+
+.input-fild .underline::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background: linear-gradient(86deg, rgba(32, 87, 125, 1) 0%, rgba(93, 155, 197, 1) 100%);
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.input-fild input:focus~.underline::after {
+    transform: scaleX(1);
+}
+
+::-webkit-input-placeholder {
+    color: rgba(83, 83, 83, 0.822);
+    font-weight: bold;
+}
+
+.olho {
+    cursor: pointer;
+    width: 15px;
+    z-index: 100;
+}
+
+.senha {
+    width: 87% !important;
+}
+
+/* Estilo Dash */
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.box-dashboard {
+    height: 97vh;
+}
+
+/* Essa class serve para colocar todas navbar superiores lado a lado */
+.superior {
+    display: flex;
+}
+
+/* Navbar que contém o ícone Oncln */
+.nav-superior-esquerda {
+    height: 8vh;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 0 0 0;
+    background-color: var(--blue-dark);
+    justify-content: center;
+    box-shadow: 0px 5px 10px var(--blue-dark2);
+    z-index: 99;
+}
+
+.nav-superior-esquerda img {
+    height: 60%;
+}
+
+/* Navbar central */
+.nav-superior-central {
+    height: 8vh;
+    width: 62%;
+    align-items: center;
+    display: flex;
+    background: linear-gradient(86deg, rgba(17, 45, 65, 1) 0%, rgba(58, 100, 130, 1) 100%);
+}
+
+/* Estilizar input pesquisar */
+.nav-superior-central input {
+    margin: 0 0 0 20px;
+    width: 25%;
+    height: 20px;
+    padding: 2px 0 0 35px;
+    color: var(--light-color);
+    font-family: var(--font-defaut);
+    font-size: 0.9rem;
+    box-shadow: none;
+    outline: 0;
+    border: solid var(--blue-dark) 0px;
+    border-bottom: solid var(--grey-three) 1px;
+    background: rgba(255, 255, 255, 0) url(../imagens/lupa.png) no-repeat 2% center;
+}
+
+input::placeholder {
+    color: var(--grey-three);
+}
+
+/* Navbar superior esquerdo que contém os dados do usuário junto ao icones config e sino */
+.nav-info {
+    height: 8vh;
+    width: 18%;
+    border-radius: 0 10px 0 0;
+    align-items: center;
+    display: flex;
+    border-left: solid var(--light-color) 1px;
+    background: rgba(58, 100, 130, 1) 100%;
+    padding: 0 0 0 10px;
+    color: var(--light-color);
+}
+
+.nav-info .user {
+    height: 35px;
+    margin: 0 0 0 10px;
+    border-right: solid var(--light-color) 1px;
+    padding: 0 10px 0 0;
+}
+
+.nav-info .config {
+    height: 20px;
+    margin: 0 0 0 10px;
+}
+
+/* Navbar superior esquerdo que contém os dados do usuário */
+.nav-info {
+    width: 18%;
+    border-radius: 0 10px 0 0;
+    display: flex;
+    border-left: solid var(--light-color) 1px;
+    background: rgba(58, 100, 130, 1) 100%;
+    padding: 0 0 0 10px;
+    color: var(--light-color);
+}
+
+.nav-info .user {
+    height: 80%;
+    margin: 0 0 0 10px;
+    border-right: solid var(--light-color) 1px;
+    padding: 0 10px 0 0;
+}
+
+.nav-info .config {
+    height: 50%;
+    margin: 0 0 0 10px;
+}
+
+/* Colocando lado a lado conteudo com a navbar esquerda */
+.container-dash {
+    display: flex;
+}
+
+/* Navbar que contém a lista para acesso as outras páginas */
+.nav-esquerda {
+    height: 89vh;
+    min-width: 19.9%;
+    background: linear-gradient(183deg, rgba(30, 47, 59, 1) 0%,
+            rgba(43, 78, 103, 1) 47%, rgba(79, 116, 141, 1) 100%);
+    display: flex;
+    border-radius: 0 0 0 10px;
+    align-items: center;
+    box-shadow: 0px 5px 20px var(--dark-grey);
+    justify-content: center;
+}
+
+/* Lista navbar */
+
+.list-nav-esqueda {
+    align-items: center;
+    padding: 0% !important;
+}
+
+.list-nav-esqueda li {
+    list-style-type: none;
+    margin-bottom: 28px;
+    font-family: 'Readex Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 95%;
+    cursor: pointer;
+    color: var(--light-color);
+}
+
+.list-nav-esqueda a {
+    color: var(--grey-one);
+}
+
+.conteudo {
+    width: 80%;
+    height: 89vh;
+    border-radius: 0 0 10px 0;
+    box-shadow: 0px 5px 20px var(--dark-grey);
+    float: right;
+    overflow-y: scroll;
+}
+
+.centro {
+    padding: 5% 0 0 0;
+}
+
+.box-select-button {
+    padding: 2% 4% 0 0;
+}
+
+.lado {
+    float: right;
+}
+
+.conteudo .voltar {
+    margin: 1% 0 0 4%;
+    height: 7%;
+    cursor: pointer;
+}
+
+/* Home */
+.btns-direcionar {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.direcionar {
+    width: 17%;
+    height: 21vh;
+    background-color: var(--light-color);
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(0 0 0 / 25%);
+    text-align: center;
+    padding-top: 1%;
+    cursor: pointer;
+}
+
+.direcionar img {
+    height: 55%;
+    margin: auto;
+}
+
+.box-salas {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border: solid var(--grey-two) 1px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    margin-left: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    height: 50%;
+    background: rgb(32, 87, 125);
+    background: linear-gradient(187deg, rgba(32, 87, 125, 1) 0%, rgba(183, 206, 222, 1) 100%);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    margin-left: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    height: 50%;
+    background: rgb(32, 87, 125);
+    background: linear-gradient(187deg, rgba(32, 87, 125, 1) 0%, rgba(183, 206, 222, 1) 100%);
+}
+
+/*  Salas */
+.select-maior {
+    width: 24%;
+    margin-left: 4%;
+}
+
+.select-menor {
+    width: 14%;
+    margin-left: 4%;
+}
+
+/* Consumo por equipamento */
+.chart-consumo {
+    float: left;
+    text-align: center;
+}
+
+.chart-consumo .box-chart {
+    width: 90% !important;
+}
+
+.info-consumo {
+    float: right;
+    text-align: center;
+    margin-right: 15%;
+    text-align: left;
+}
+
+.info-consumo h5 {
+    float: left;
+    margin: 8px 4px 0 0 !important;
+}
+
+/* Consumo */
+.table-consumo td {
+    overflow: hidden;
+    width: 205px;
+    height: 45px;
+    word-break: normal;
+    font-size: 90%;
+}
+
+.organiza-lista .td-lista-equipamento {
+    padding: 10px 55px;
+}
+
+/* Page Central de Ajuda */
+.container-central {
+    margin-left: 4%;
+    margin-top: 5%;
+}
+
+/* Painel Controle Salas */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--blue);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--blue);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* Modais */
+.modal-centro {
+    width: 98.8%;
+    height: 97%;
+    background-color: rgba(0, 0, 0, 0.543);
+    justify-content: center;
+    position: absolute;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    z-index: 100;
+}
+
+.modal {
+    align-items: center;
+    background-color: var(--white);
+    width: 28%;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.modal h2 {
+    margin: 2% 0 5% 0 !important;
+    font-size: 3vh;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.modal h4 {
+    margin: 0% !important;
+    font-weight: 500;
+    color: var(--grey-dark);
+}
+
+.modal .h4-topo {
+    margin-top: 5% !important;
+}
+
+.on-off {
+    align-items: center;
+    display: flex;
+}
+
+.on-off input {
+    width: 5% !important;
+    height: 5%;
+    background-color: var(--blue-dark);
+}
+
+.on-off span {
+    padding: 0% !important;
+    margin-right: 10%;
+}
+
+.div-deu-certo h3 {
+    margin: auto;
+}
+
+.button-modal {
+    width: 35%;
+    margin: 0;
+}
+
+.modal form {
+    width: 100%;
+}
+
+.modal input {
+    width: 99%;
+    height: 5vh;
+    background: none;
+    font-family: var(--font-defaut);
+    font-size: 0.9rem;
+    color: var(--grey-dark);
+    outline: 0;
+    border: solid var(--blue-dark) 0px;
+    background-color: var(--grey-one);
+    margin-bottom: 5%;
+}
+
+.modal input:last-child {
+    margin-bottom: 10%;
+}
+
+.input-lado {
+    width: 48%;
+    float: left;
+}
+
+.a {
+    padding-left: 4%;
+}
+
+.btn-close {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 100%;
+    font-weight: bold;
+    display: flex;
+    color: var(--dark-grey);
+    z-index: 1000;
+    position: relative;
+}
+
+.modal input::placeholder {
+    font-weight: 350;
+    color: var(--grey-two) !important;
+
+}
+
+.input-editar {
+    cursor: not-allowed;
+    color: var(--grey-three) !important;
+}
+
+[data-tooltip] {
+    position: relative;
+    font-weight: bold;
+}
+
+[data-tooltip]:after {
+    font-weight: 50;
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    top: -34px;
+    padding: 8px;
+    border-radius: 3px;
+    left: calc(-130% + 2px);
+    content: attr(data-tooltip);
+    white-space: nowrap;
+    background-color: var(--blue-dark);
+    color: var(--grey-one);
+}
+
+[data-tooltip]:hover:after {
+    display: block;
+}
+
+/* Mensagem de retorno ao cadastro */
+
+.div-deu-certo {
+    align-items: center;
+    height: 7vh;
+    width: 65vh;
+    background-color: rgb(67, 214, 123);
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    margin: 2% 0 0 34.5%;
+    -webkit-animation-name: slideDown;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    position: absolute;
+    display: flex;
+    z-index: 101;
+}
+
+.div-deu-certo button {
+    border-radius: 7px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 100%;
+    float: right;
+    color: var(--white);
+}
+
+.div-deu-erro {
+    align-items: center;
+    height: 7vh;
+    width: 65vh;
+    background-color: rgb(214, 67, 67);
+    text-align: center;
+    color: var(--white);
+    border-radius: 10px;
+    margin: 1% 0 0 34%;
+    -webkit-animation-name: slideDown;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: absolute;
+    display: flex;
+    z-index: 101;
+}
+
+.div-deu-erro button {
+    color: var(--white);
+}
+
+.div-deu-erro h3 {
+    margin: auto;
+}
+
+.centralizar {
+    text-align: center;
+    padding: 10%;
+}
+
+.cadastro-equipamento input {
+    margin: 0 !important;
+}
+
+.cadastro-equipamento span {
+    font-weight: 400;
+    font-size: 90%;
+    line-height: 31px;
+}
+
+.cadastro-equipamento .button-top {
+    padding-top: 5%;
+}
