@@ -15,7 +15,7 @@ function ModalDeletar(props) {
 
     function deletar(idSalaSelecionada) {
         if (typeof idSalaSelecionada !== "undefined") {
-            api.Api.delete(`/rooms/${idSalaSelecionada}/`)
+            api.Api.delete(`/${idSalaSelecionada}/`)
                 .then(() => {
                     console.log("excluido com sucesso")
                     document.location.reload(true);

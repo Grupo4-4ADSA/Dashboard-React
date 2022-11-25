@@ -41,7 +41,6 @@ function Login(props) {
                 }
 
             })
-
     }
 
     return (
@@ -77,7 +76,7 @@ function Login(props) {
 
                             </div>
 
-                            <h4>Esqueceu sua senha jonson?</h4>
+                            <h4>Esqueceu sua senha?</h4>
 
                             <button className="btn" type="submit">Entrar</button>
                         </form>

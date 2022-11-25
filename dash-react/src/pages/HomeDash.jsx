@@ -18,7 +18,7 @@ function Home(props) {
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/all/${idPredio}`)
+        api.Api.get(`rooms/all/251`)
             .then(response => {
                 setRooms(response.data)
             })
@@ -52,7 +52,7 @@ function Home(props) {
 
                         <div className="box-salas">
                             <div className="box-list">
-                                <h2 className="title-list">Salas que estão mais consumindo neste momento:</h2>
+                                <h2 className="title-list">Salas ativas:</h2>
                                 <div className="list">
                                     {
                                         rooms.map(rooms => (
