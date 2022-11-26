@@ -56,7 +56,6 @@ function OnClnBox() {
                 /> : <></>
             }
 
-
             {showModalEditar ?
                 <ModalEditar
                     idRoom={idRoom}
@@ -107,8 +106,8 @@ function OnClnBox() {
                                     clnbox.map(clnbox => (
                                         <ListaOnClnBox
                                             idCLNBox={clnbox.idCLNBox}
-                                            name={clnbox.name}
-                                            floor={clnbox.floor}
+                                            name={clnbox.sala.name}
+                                            floor={clnbox.sala.floor}
                                             idRoom={clnbox.idRoom}
                                         />
                                     ))

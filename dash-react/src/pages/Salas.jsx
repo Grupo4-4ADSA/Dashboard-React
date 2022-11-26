@@ -56,7 +56,7 @@ function Sala() {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     return (
         <>
@@ -66,7 +66,6 @@ function Sala() {
                         setShowModalCadastrar(false)}
                 /> : <></>
             }
-
 
             {showModalEditar ?
                 <ModalEditar
@@ -109,25 +108,24 @@ function Sala() {
                             <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
                             <h2>Salas cadastradas</h2>
 
-                            <SelectsGerais />
 
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Cadastrar Sala</button>
                         </div>
 
+                            <table className="table-lista">
+                                <thead>
+                                    <tr>
+                                        <th >Sala</th>
+                                        <th >Andar</th>
+                                        <th >Status</th>
+                                        <th >Ação</th>
+                                        <th ></th>
+                                    </tr>
+                                </thead>
+                            </table>
+
                         <div className="list organiza-lista">
                             <table className="table-lista">
-                                <li className="title-lista">
-                                    <thead>
-                                        <tr>
-                                            <th >Sala</th>
-                                            <th >Andar</th>
-                                            <th >Status</th>
-                                            <th >Ação</th>
-                                            <th ></th>
-                                        </tr>
-                                    </thead>
-                                </li>
-
                                 {
                                     rooms.map(rooms => (
                                         <ListaSalas

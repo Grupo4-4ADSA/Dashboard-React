@@ -430,7 +430,6 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    border: solid var(--grey-two) 1px;
 }
 
 ::-webkit-scrollbar {

@@ -18,10 +18,11 @@ function ModalCadastroOnCln(props) {
         event.preventDefault()
         console.log(qrCode)
         api.Api.post("/clnboxex", {
-            room: {
+            qrCode: qrCode,
+            ip: '97.178.103.78',
+            sala: {
                 idRoom: idSala
-            },
-            qrCode: qrCode
+            }
 
         }).then(response => {
             console.log(response.status)
@@ -35,7 +36,7 @@ function ModalCadastroOnCln(props) {
             setRespostaCerto(false)
             setTimeout(setRespostaErrado, 7000)
         })
-    
+
     }
 
     const idPredio = sessionStorage.idPredio
@@ -48,7 +49,7 @@ function ModalCadastroOnCln(props) {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     return (
         <>
@@ -62,21 +63,20 @@ function ModalCadastroOnCln(props) {
                 closeRespostaErro={
                     () => setRespostaErrado(false)} /> : <></>}
 
-
             <div className="modal-centro">
                 <div id="cadastro" className="modal">
                     <button onClick={props.closeModalCadastrar} className="btn-close lado" >X</button>
                     <h2>Cadastrar OnCln-Box</h2>
-                    
+
                     <form onSubmit={cadastrar}>
                         <h4>Sala:</h4>
-                        {                
+                        {
                             <SelectSala
-                            onChange={(e)=>{
-                                setIdRoom(e.target.value)
-                                console.log(e.target.value)
-                            }}
-                            data={rooms}/>
+                                onChange={(e) => {
+                                    setIdRoom(e.target.value)
+                                    console.log(e.target.value)
+                                }}
+                                data={rooms} />
                         }
 
                         <h4 className="h4-topo">Qr-Code:</h4>

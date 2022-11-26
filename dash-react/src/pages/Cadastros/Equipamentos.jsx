@@ -15,6 +15,7 @@ import ModalEditar from '../../componentes/modais/modais-equipamentos/ModalEdita
 import ModalDeletar from '../../componentes/modais/modais-salas/ModalDeletar';
 
 function Sala() {
+
     const [idRoom, setIdRoom] = useState([]);
     const [name, setName] = useState([]);
     const [floor, setFloor] = useState([]);
@@ -51,7 +52,7 @@ function Sala() {
     const [equips, setEquips] = useState([]);
 
     useEffect(() => {
-        api.Api.get(`/equipments`)
+        api.Api.get(`/equipments/predio/${idPredio}`)
             .then(response => {
                 setEquips(response.data)
                 // console.log(idSala)
@@ -59,7 +60,7 @@ function Sala() {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     const idPredio = sessionStorage.idPredio
 
@@ -71,7 +72,7 @@ function Sala() {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     return (
         <>
@@ -81,7 +82,6 @@ function Sala() {
                         setShowModalCadastrar(false)}
                 /> : <></>
             }
-
 
             {showModalEditar ?
                 <ModalEditar
@@ -146,14 +146,13 @@ function Sala() {
                                 </li>
 
                                 {
-
                                     equips.map(equips => (
                                         <ListaEquipamento
                                             update={setVariavel}
                                             delete={setVariavelDeletar}
-                                            nameRoom={equips.nameRoom}
-                                            floor={equips.floor}
-                                            type={equips.type}
+                                            nameRoom={equips.clnBox.sala.name}
+                                            floor={equips.clnBox.sala.floor}
+                                            type={equips.tipo}
                                         />
                                     ))
 

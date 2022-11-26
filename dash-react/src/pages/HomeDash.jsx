@@ -45,14 +45,13 @@ function Home(props) {
                     </div>
                     <div class="conteudo">
                         <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
-
-                        <h2 >Com o nosso sistema você não emitiu 0,4 de co2 economizando R$ 20,00</h2>
-
+                      
                         <BtnsDirecionar />
 
                         <div className="box-salas">
+                            
                             <div className="box-list">
-                                <h2 className="title-list">Salas que estão mais consumindo neste momento:</h2>
+                                <h2 className="title-list">Salas ativas:</h2>
                                 <div className="list">
                                     {
                                         rooms.map(rooms => (

@@ -25,7 +25,7 @@ function PainelSalas(props) {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     return (
         <>

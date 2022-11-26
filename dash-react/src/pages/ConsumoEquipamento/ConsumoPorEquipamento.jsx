@@ -24,7 +24,7 @@ function ConsumoPorEquioamento() {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     return (
         <>

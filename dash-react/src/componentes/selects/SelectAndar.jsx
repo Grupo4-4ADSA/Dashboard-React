@@ -16,7 +16,7 @@ function SelectSalas(props) {
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
 
     return (
         <>

@@ -8,8 +8,11 @@ import SelectEquipamento from '../../selects/SelectEquipamento';
 import api from "../../../Api";
 
 function ModalCadastroEquipamento(props) {
+    
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
+
+    const [requestSizes, setRequest] = useState([])
 
     const [name, setNameEquipament] = useState([])
     const [typeEquipament, setType] = useState([])
@@ -17,6 +20,7 @@ function ModalCadastroEquipamento(props) {
     const [qtdEquipment, setQtdEquipment] = useState([])
     const [potencyEquipment, setPotencyEquipment] = useState([])
     const [lifespanEquipament, setLifespan] = useState([])
+    const [porta, setPorta] = useState([])
 
     const [idSala, setIdRoom] = useState([])
 
@@ -28,14 +32,15 @@ function ModalCadastroEquipamento(props) {
         console.log(dataInt.getTime())
         event.preventDefault()
         api.Api.post("/equipments", {
-            name: typeEquipament,
-            type: typeEquipament,
-            installationDate: dataInt,
-            lifespan: lifespanEquipament,
-            potency: potencyEquipment,
-            qtdEquipment: qtdEquipment,
+            nome: typeEquipament,
+            tipo: typeEquipament,
+            instalacao: dataInt,
+            vidaUtil: lifespanEquipament,
+            potencia: potencyEquipment,
+            qtdEquipamento: qtdEquipment,
+            porta: porta,
             clnBox: {
-                idCLNBox: idCln
+                idCLNBox: 50
             }
 
         }).then(response => {
@@ -56,14 +61,29 @@ function ModalCadastroEquipamento(props) {
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/${idPredio}`)
+        api.Api.get(`/rooms/all/${idPredio}`)
             .then(response => {
                 setRooms(response.data)
             })
             .catch(erro => {
                 console.log(erro)
             })
-    })
+    }, [])
+
+    
+    function requestSize(idSala) {
+        api.Api.get(`/equipments/${idSala}`)
+        .then(response => {
+            setRequest(response.data)
+            console.log( requestSizes.length)
+        }).catch(erro => {
+            console.log(erro)
+        })
+       if (requestSizes.length < 11) {
+           setPorta(requestSizes.length)
+       } 
+}
+
 
     return (
         <>
@@ -91,11 +111,11 @@ function ModalCadastroEquipamento(props) {
                             <SelectSala
                                 onChange={(e) => {
                                     setIdRoom(e.target.value)
+                                    requestSize(e.target.value)    
                                     rooms.map(valor => {
                                         if (valor.idRoom == e.target.value) {
-                                            setidCLNBox(valor.idClnBox)
+                                            setidCLNBox(valor.clnBox.idCLNBox)
                                         }
-
                                     })
                                 }}
                                 data={rooms} />

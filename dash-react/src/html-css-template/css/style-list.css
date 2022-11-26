@@ -67,6 +67,10 @@
     height: 50%;
 }
 
+.organiza-lista .td-lista a {
+    cursor: pointer;
+}
+
 .organiza-lista .td-lista-editar-deletar button {
     padding-left: 18px;
 }

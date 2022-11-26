@@ -32,7 +32,7 @@ function Login(props) {
                 if (response.status === 200) {
                     console.log("Login feito com sucesso")
                     sessionStorage.nomeGestor = response.data.nome;
-                    sessionStorage.idPredio = response.data.fkEmpresa;
+                    sessionStorage.idPredio = response.data.idPredio;
                     sessionStorage.idGestor = response.data.idGestor;
                     navigate("/home")
                 } else {
@@ -77,7 +77,7 @@ function Login(props) {
 
                             </div>
 
-                            <h4>Esqueceu sua senha jonson?</h4>
+                            <h4>Esqueceu sua senha?</h4>
 
                             <button className="btn" type="submit">Entrar</button>
                         </form>

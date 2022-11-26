@@ -18,8 +18,8 @@ function ModalCadastroSalas(props) {
         event.preventDefault()
         console.log(nomeSala + " " + andarSala)
         api.Api.post("/rooms", {
-            building:{
-                idBuilding: idPredio
+            predio:{
+                idPredio: idPredio
             },
             name: nomeSala,
             floor: andarSala
