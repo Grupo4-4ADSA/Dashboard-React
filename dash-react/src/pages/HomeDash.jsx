@@ -18,7 +18,7 @@ function Home(props) {
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/all/${idPredio}`)
+        api.Api.get(`rooms/all/251`)
             .then(response => {
                 setRooms(response.data)
             })

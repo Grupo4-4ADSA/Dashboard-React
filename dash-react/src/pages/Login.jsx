@@ -41,7 +41,6 @@ function Login(props) {
                 }
 
             })
-
     }
 
     return (
