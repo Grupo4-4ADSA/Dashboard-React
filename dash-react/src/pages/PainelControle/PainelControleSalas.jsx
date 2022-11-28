@@ -16,11 +16,13 @@ function PainelSalas(props) {
 
     const [equips, setEquips] = useState([]);
     const idSala = sessionStorage.idSala
+    const [nameRoom, setNameRoom] = useState([])
 
     useEffect(() => {
         api.Api.get(`/equipments/${idSala}`)
             .then(response => {
                 setEquips(response.data)
+                setNameRoom(response.data[0].clnBox.sala.name)
             })
             .catch(erro => {
                 console.log(erro)
@@ -46,27 +48,30 @@ function PainelSalas(props) {
                     <div class="conteudo">
                         <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
 
-                        <h2>{equips.name}</h2>
+                        <h2>Sala: {nameRoom}</h2>
 
+
+                        <div className="titulo">
+                            <table className="table-lista">
+                                <thead>
+                                    <tr>
+                                        <th >Equipamento</th>
+                                        <th >Potência</th>
+                                        <th >Estado</th>
+                                        <th >Ação</th>
+                                        <th ></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                         <div className="list organiza-lista">
                             <table className="table-lista">
-                                <li className="title-lista">
-                                    <thead>
-                                        <tr>
-                                            <th >Equipamento</th>
-                                            <th >Potência</th>
-                                            <th >Estado</th>
-                                            <th >Ação</th>
-                                            <th ></th>
-                                        </tr>
-                                    </thead>
-                                </li>
 
                                 {
                                     equips.map(equips => (
                                         <ListaEquipamentoPainel
-                                            type={equips.type}
-                                            potency={equips.potency}
+                                            type={equips.tipo}
+                                            potency={equips.potencia}
                                             state={'desligado'}
 
                                         />

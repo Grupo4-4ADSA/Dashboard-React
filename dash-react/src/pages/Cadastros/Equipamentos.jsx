@@ -121,29 +121,27 @@ function Sala() {
                         <div className="box-select-button">
                             <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
                             <h2>Equipamentos cadastrados</h2>
-                            <SelectsGerais
-                                onChange={(e) => {
-                                    setIdSala(43)
-                                }}
-
-                            />
+                              
 
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Cadastrar Equipamento</button>
                         </div>
 
+                        <div className="titulo">
+                            <table className="table-lista">
+                                <thead>
+                                    <tr>
+                                        <th >Tipo</th>
+                                        <th >Sala</th>
+                                        <th >Andar</th>
+                                        <th >Ação</th>
+                                        <th ></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
                         <div className="list organiza-lista">
                             <table className="table-lista">
-                                <li className="title-lista">
-                                    <thead>
-                                        <tr>
-                                            <th >Tipo</th>
-                                            <th >Sala</th>
-                                            <th >Andar</th>
-                                            <th >Ação</th>
-                                            <th ></th>
-                                        </tr>
-                                    </thead>
-                                </li>
 
                                 {
                                     equips.map(equips => (
@@ -155,7 +153,6 @@ function Sala() {
                                             type={equips.tipo}
                                         />
                                     ))
-
                                 }
 
                             </table>

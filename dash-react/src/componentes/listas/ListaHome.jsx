@@ -6,7 +6,7 @@ function ListaHome(props) {
     return (
         <>
             <li className="li-box-salas">
-                <h5> Sala {props.name} <br />
+                <h5 className="h5-li-box-salas"> Sala {props.name} <br />
                     Andar {props.floor}
                 </h5>
             </li>

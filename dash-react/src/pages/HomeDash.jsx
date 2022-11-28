@@ -51,7 +51,7 @@ function Home(props) {
                         <div className="box-salas">
                             
                             <div className="box-list">
-                                <h2 className="title-list">Salas ativas:</h2>
+                                <h2>Salas ativas:</h2>
                                 <div className="list">
                                     {
                                         rooms.map(rooms => (

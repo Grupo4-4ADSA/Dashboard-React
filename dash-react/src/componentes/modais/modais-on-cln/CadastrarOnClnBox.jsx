@@ -42,7 +42,7 @@ function ModalCadastroOnCln(props) {
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/all/251`)
+        api.Api.get(`/rooms/all/${idPredio}`)
             .then(response => {
                 setRooms(response.data)
             })
@@ -80,7 +80,7 @@ function ModalCadastroOnCln(props) {
                         }
 
                         <h4 className="h4-topo">Qr-Code:</h4>
-                        <input type="text" placeholder="Digite o andar dessa sala"
+                        <input type="text" placeholder="Digite o qr-code"
                             value={qrCode} onChange={e => setQrCode(e.target.value)}
                             maxLength="200" />
 

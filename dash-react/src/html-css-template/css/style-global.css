@@ -86,6 +86,10 @@ h5 {
     margin: 2.5rem 0 1rem 0;
 }
 
+.h5-li-box-salas{
+    margin: 2.8rem 0 0 0;
+}
+
 select {
     background-color: var(--grey-one) !important;
     height: 34px;
@@ -499,7 +503,7 @@ input::placeholder {
 }
 
 .organiza-lista .td-lista-equipamento {
-    padding: 10px 55px;
+    padding: 10px 35px;
 }
 
 /* Page Central de Ajuda */

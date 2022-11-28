@@ -49,7 +49,7 @@ function Sala() {
     console.log(rooms)
 
     useEffect(() => {
-        api.Api.get(`/rooms/all/251`)
+        api.Api.get(`/rooms/all/${idPredio}`)
             .then(response => {
                 setRooms(response.data)
             })
@@ -112,6 +112,7 @@ function Sala() {
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Cadastrar Sala</button>
                         </div>
 
+                        <div className="titulo">
                             <table className="table-lista">
                                 <thead>
                                     <tr>
@@ -123,7 +124,7 @@ function Sala() {
                                     </tr>
                                 </thead>
                             </table>
-
+                        </div>
                         <div className="list organiza-lista">
                             <table className="table-lista">
                                 {

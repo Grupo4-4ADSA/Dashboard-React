@@ -35,6 +35,7 @@
 
 .title-lista {
     background-color: #ffffff00 !important;
+    margin: 0;
 }
 
 .organiza-lista {
@@ -53,6 +54,10 @@
 .table-lista td {
     min-width: 182px;
     height: 42px;
+}
+
+.titulo{
+    margin-left: 35px;
 }
 
 .menor {

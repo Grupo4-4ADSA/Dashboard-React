@@ -95,7 +95,6 @@ function OnClnBox() {
                         <div className="box-select-button">
                             <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
                             <h2>OnCln-Box cadastrados</h2>
-                            <SelectsGerais />
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Cadastrar OnCln-Box</button>
                         </div>
 

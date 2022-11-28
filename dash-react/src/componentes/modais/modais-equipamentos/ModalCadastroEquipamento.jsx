@@ -40,7 +40,7 @@ function ModalCadastroEquipamento(props) {
             qtdEquipamento: qtdEquipment,
             porta: porta,
             clnBox: {
-                idCLNBox: 50
+                idCLNBox: idCln
             }
 
         }).then(response => {
@@ -61,7 +61,7 @@ function ModalCadastroEquipamento(props) {
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/all/${idPredio}`)
+        api.Api.get(`/rooms/${idPredio}`)
             .then(response => {
                 setRooms(response.data)
             })
@@ -114,7 +114,7 @@ function ModalCadastroEquipamento(props) {
                                     requestSize(e.target.value)    
                                     rooms.map(valor => {
                                         if (valor.idRoom == e.target.value) {
-                                            setidCLNBox(valor.clnBox.idCLNBox)
+                                            setidCLNBox(valor.idCln)
                                         }
                                     })
                                 }}
