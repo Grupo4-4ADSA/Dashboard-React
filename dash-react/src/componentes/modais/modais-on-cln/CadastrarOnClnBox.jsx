@@ -42,7 +42,7 @@ function ModalCadastroOnCln(props) {
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/all/${idPredio}`)
+        api.Api.get(`rooms/apenas/salas/${idPredio}`)
             .then(response => {
                 setRooms(response.data)
             })

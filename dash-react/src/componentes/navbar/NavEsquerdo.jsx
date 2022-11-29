@@ -8,8 +8,9 @@ function ItemNavEsq(props) {
         <>
             <ul class=" list-nav-esqueda">
                 <li><Link to="/home">Home</Link> </li>
-                <li><Link to="/cadastra-edita">Cadastrar/Editar</Link></li>
+                <li><Link to="/cadastrar-ou-editar">Cadastrar/Editar</Link></li>
                 <li><Link to="/salas">Salas</Link></li>
+                <li><Link to="/equipamentos">Equipamentos</Link></li>
                 <li><Link to="/painel-controle">Painel de controle</Link></li>
                 <li><Link to="/consumo-equipamento">Consumo/equipamento</Link></li>
                 <li><Link to="/resumo-consumo">Resumo de consumo</Link></li>

@@ -56,26 +56,6 @@ function OnClnBox() {
                 /> : <></>
             }
 
-            {showModalEditar ?
-                <ModalEditar
-                    idRoom={idRoom}
-                    name={name}
-                    floor={floor}
-                    closeModalEditar={() =>
-                        setShowModalEditar(false)}
-                /> : <></>
-            }
-
-            {showModalDeletar ?
-                <ModalDeletar
-                    idRoom={idRoom}
-                    name={name}
-                    floor={floor}
-                    closeModalEditar={() =>
-                        setShowModalDeletar(false)}
-                /> : <></>
-            }
-
             <div clas="container">
 
                 <div class="superior">

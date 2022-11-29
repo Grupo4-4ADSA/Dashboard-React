@@ -116,7 +116,7 @@ function PainelAgendamentoMarcado({ route, navigation }) {
                             <table className="table-lista">
                                 <li className="title-lista">
                                     <thead>
-                                        <tr>
+                                        <tr className="th-agendamento">
                                             <th >Sala</th>
                                             <th className="menor">Andar</th>
                                             <th className="menor">Data inicial</th>

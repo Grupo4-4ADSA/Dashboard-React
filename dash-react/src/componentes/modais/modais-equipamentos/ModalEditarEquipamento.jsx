@@ -4,17 +4,59 @@ import RespostaCerto from '../../respostas-crud/RespostaCerto';
 import RespostaErro from '../../respostas-crud/RespostaErro';
 import SelectSala from '../../selects/SelectSala';
 import SelectEquipamento from '../../selects/SelectEquipamento';
-import ImgInfo from '../../../html-css-template/imagens/simbolo-de-informacao.png'
+
 import api from "../../../Api";
 
 function ModalCadastroEquipamento(props) {
+    
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
 
-    const [nomeSala, setNomeSala] = useState([])
-    const [andarSala, setAndarSala] = useState([])
+    const [requestSizes, setRequest] = useState([])
+
+    const [name, setNameEquipament] = useState([])
+    const [typeEquipament, setType] = useState([])
+    const [installationDate, setinstallation] = useState([])
+    const [qtdEquipment, setQtdEquipment] = useState([])
+    const [potencyEquipment, setPotencyEquipment] = useState([])
+    const [lifespanEquipament, setLifespan] = useState([])
+    const [porta, setPorta] = useState([])
+
     const [idSala, setIdRoom] = useState([])
-    const [rooms, setRooms] = useState([]);
+
+    const [idCln, setidCLNBox] = useState([])
+    const [rooms, setRooms] = useState([])
+
+    function editarEquipamento(event) {
+        const dataInt = new Date(installationDate)
+        console.log(dataInt.getTime())
+        event.preventDefault()
+        api.Api.patch(`/equipments/${props.idRoom}/`, {
+            nome: typeEquipament,
+            tipo: typeEquipament,
+            instalacao: dataInt,
+            vidaUtil: lifespanEquipament,
+            potencia: potencyEquipment,
+            qtdEquipamento: qtdEquipment,
+            porta: porta,
+            clnBox: {
+                idCLNBox: idCln
+            }
+
+        }).then(response => {
+            console.log(response.status)
+
+            setRespostaCerto(true)
+            setRespostaErrado(false)
+            setTimeout(setRespostaCerto, 140000)
+            window.location.reload()
+        }).catch(erro => {
+            console.log(erro)
+            setRespostaErrado(true)
+            setRespostaCerto(false)
+            setTimeout(setRespostaErrado, 7000)
+        })
+    }
 
     const idPredio = sessionStorage.idPredio
 
@@ -28,15 +70,30 @@ function ModalCadastroEquipamento(props) {
             })
     }, [])
 
+    
+    function requestSize(idSala) {
+        api.Api.get(`/equipments/${idSala}`)
+        .then(response => {
+            setRequest(response.data)
+            console.log( requestSizes.length)
+        }).catch(erro => {
+            console.log(erro)
+        })
+       if (requestSizes.length < 11) {
+           setPorta(requestSizes.length)
+       } 
+}
+
+
     return (
         <>
             {respostaCerto ? <RespostaCerto
-                texto={"Cadastrado com sucesso!"}
+                texto={"Editado com sucesso!"}
                 closeRespostaCerto={
                     () => setRespostaCerto(false)} /> : <></>}
 
             {respostaErrado ? <RespostaErro
-                texto={"Erro ao cadastrar"}
+                texto={"Erro ao salvar alterações"}
                 closeRespostaErro={
                     () => setRespostaErrado(false)} /> : <></>}
 
@@ -46,52 +103,64 @@ function ModalCadastroEquipamento(props) {
 
                     <h2>Editar equipamento</h2>
 
-                    <form /* onSubmit={} */ className="cadastro-equipamento">
+                    <form onSubmit={editarEquipamento} className="cadastro-equipamento">
 
-                        <h4>Selecionar salas: <span data-tooltip="Para alterar este campo entre em contato com o suporte"><img src={ImgInfo} alt="" /></span> </h4>
+                        <span >Sala desse equipamento:</span>
+
                         {
                             <SelectSala
                                 onChange={(e) => {
                                     setIdRoom(e.target.value)
-                                    console.log(idSala)
+                                    requestSize(e.target.value)    
+                                    rooms.map(valor => {
+                                        if (valor.idRoom == e.target.value) {
+                                            setidCLNBox(valor.idClnBox)
+                                        }
+                                    })
                                 }}
-
                                 data={rooms} />
                         }
 
                         <span>Tipo do equipamento</span>
-                        <SelectEquipamento />
+
+                        {
+                            <SelectEquipamento
+                                onChange={(e) => {
+                                    setType(e.target.value)
+                                }}
+                            />
+                        }
 
                         <span>Data da instalação:</span>
                         <input type="date"
-                            value={andarSala}
-                            onChange={e => setAndarSala(e.target.value)}
+                            value={installationDate}
+                            onChange={e => setinstallation(e.target.value)}
                         />
 
                         <div className="input-lado">
                             <span>Quantidade</span>
                             <input type="number"
-                                value={nomeSala} onChange={e => setNomeSala(e.target.value)}
+                                value={qtdEquipment} onChange={e => setQtdEquipment(e.target.value)}
                                 maxLength="3" />
                         </div>
 
                         <div className="input-lado a">
                             <span>Potência:</span>
                             <input type="number"
-                                /* value={andarSala} */
-                                onChange={e => setAndarSala(e.target.value)}
+                                value={potencyEquipment}
+                                onChange={e => setPotencyEquipment(e.target.value)}
                                 maxLength="5" />
                         </div>
 
                         <span>Vida útil em horas:</span>
                         <input type="number"
-                            /*  value={vidaUtil} */
-                            onChange={e => setAndarSala(e.target.value)}
+                            value={lifespanEquipament}
+                            onChange={e => setLifespan(e.target.value)}
                             maxLength="3" />
 
                         <div className="button-top">
-                            <button onClick={props.closeModalCadastrar} className="button-cinza button-modal">Cancelar</button>
-                            <button className="button-azul lado button-modal" type="submit">Atualizar</button>
+                            <button onClick={props.closeModalEditar} className="button-cinza button-modal">Cancelar</button>
+                            <button className="button-azul lado button-modal" type="submit">Salvar</button>
                         </div>
                     </form>
                 </div>

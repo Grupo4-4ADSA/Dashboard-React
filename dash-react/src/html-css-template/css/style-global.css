@@ -57,6 +57,11 @@ h2 {
     margin-left: 44px;
 }
 
+.titulo-lista-salas-home{
+    margin-left: 15px;
+
+}
+
 h2::before {
     content: '';
     font-family: 'Readex Pro';
@@ -388,7 +393,7 @@ input::placeholder {
 }
 
 .box-select-button {
-    padding: 2% 4% 0 0;
+    padding: 0 4% 0 0;
 }
 
 .lado {

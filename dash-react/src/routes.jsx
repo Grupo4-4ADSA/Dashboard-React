@@ -24,7 +24,7 @@ function Rotas() {
             <Routes>
                 <Route path="/" exact element={<Login />} />
                 <Route path="/home" exact element={<HomeDash />} />
-                <Route path="/cadastra-edita" exact element={<CadastraEdita />} />
+                <Route path="/cadastrar-ou-editar" exact element={<CadastraEdita />} />
                 <Route path="/salas" exact element={<Salas />} />
                 <Route path="/painel-controle" exact element={<PainleDeControle />} />
                 <Route path="/consumo-equipamento" exact element={<ConsumoEquipamento />} />

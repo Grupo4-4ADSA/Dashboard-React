@@ -114,7 +114,7 @@ function ModalCadastroEquipamento(props) {
                                     requestSize(e.target.value)    
                                     rooms.map(valor => {
                                         if (valor.idRoom == e.target.value) {
-                                            setidCLNBox(valor.idCln)
+                                            setidCLNBox(valor.idClnBox)
                                         }
                                     })
                                 }}

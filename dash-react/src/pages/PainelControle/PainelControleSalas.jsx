@@ -56,6 +56,7 @@ function PainelSalas(props) {
                                 <thead>
                                     <tr>
                                         <th >Equipamento</th>
+                                        <th >Id</th>
                                         <th >Potência</th>
                                         <th >Estado</th>
                                         <th >Ação</th>
@@ -72,6 +73,7 @@ function PainelSalas(props) {
                                         <ListaEquipamentoPainel
                                             type={equips.tipo}
                                             potency={equips.potencia}
+                                            id={equips.idEquipamento}
                                             state={'desligado'}
 
                                         />

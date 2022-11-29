@@ -20,6 +20,7 @@ function ListaEquipamentoPainel(props) {
                 <thead >
                     <tr>
                         <td class="td-lista">{props.type}</td>
+                        <td class="td-lista">{props.id}</td>
                         <td class="td-lista">{props.potency}</td>
                         <td class="td-lista">{props.state}</td>
                         <td class="td-lista"> <div class="label">

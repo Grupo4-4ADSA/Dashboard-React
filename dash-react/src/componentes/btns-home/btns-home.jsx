@@ -23,7 +23,7 @@ function Home(props) {
                     <img src={ImgRelatorio} alt="" />
                     <h4>Resumo de consumo</h4>
                 </button>
-                <button onClick={() => navigate("/cadastra-edita")} className="direcionar">
+                <button onClick={() => navigate("/cadastrar-ou-editar")} className="direcionar">
                     <img src={ImgCadastrarEditar} alt="" />
                     <h4>Cadastros</h4>
                 </button>

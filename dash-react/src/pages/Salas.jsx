@@ -117,6 +117,7 @@ function Sala() {
                                 <thead>
                                     <tr>
                                         <th >Sala</th>
+                                        <th >Id</th>
                                         <th >Andar</th>
                                         <th >Status</th>
                                         <th >Ação</th>

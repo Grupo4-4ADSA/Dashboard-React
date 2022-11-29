@@ -16,6 +16,7 @@ function ListaSalas(props) {
                 <thead>
                     <tr>
                         <td class="td-lista">{props.name}</td>
+                        <td class="td-lista">{props.idRoom}</td>
                         <td class="td-lista td-menor">{props.floor}</td>
                         <td class="td-lista"><img src={atencao} alt="" /></td>
                         <td class="td-lista-editar-deletar">

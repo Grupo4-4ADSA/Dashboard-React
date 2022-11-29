@@ -131,6 +131,7 @@ function Sala() {
                                 <thead>
                                     <tr>
                                         <th >Tipo</th>
+                                        <th >Id</th>
                                         <th >Sala</th>
                                         <th >Andar</th>
                                         <th >Ação</th>
@@ -151,6 +152,7 @@ function Sala() {
                                             nameRoom={equips.clnBox.sala.name}
                                             floor={equips.clnBox.sala.floor}
                                             type={equips.tipo}
+                                            id={equips.idEquipamento}
                                         />
                                     ))
                                 }

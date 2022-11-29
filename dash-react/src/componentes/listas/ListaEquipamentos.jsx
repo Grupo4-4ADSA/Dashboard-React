@@ -7,6 +7,7 @@ function ListaEquipamentos(props) {
                 <thead>
                     <tr>
                         <td class="td-lista">{props.type}</td>
+                        <td class="td-lista">{props.id}</td>
                         <td class="td-lista">{props.nameRoom}</td>
                         <td class="td-lista">{props.floor}</td>
                         <td class="td-lista-editar-deletar">

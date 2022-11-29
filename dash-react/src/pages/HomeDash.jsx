@@ -51,7 +51,7 @@ function Home(props) {
                         <div className="box-salas">
                             
                             <div className="box-list">
-                                <h2>Salas ativas:</h2>
+                                <h2 className="titulo-lista-salas-home">Salas ativas:</h2>
                                 <div className="list">
                                     {
                                         rooms.map(rooms => (
