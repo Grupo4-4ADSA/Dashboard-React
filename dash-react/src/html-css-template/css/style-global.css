@@ -57,7 +57,16 @@ h2 {
     margin-left: 44px;
 }
 
-.titulo-lista-salas-home{
+.total{
+    align-items: center;
+    margin-left: 44px;
+}
+
+.espaco {
+    margin-top: 15%;
+}
+
+.titulo-lista-salas-home {
     margin-left: 15px;
 
 }
@@ -91,7 +100,7 @@ h5 {
     margin: 2.5rem 0 1rem 0;
 }
 
-.h5-li-box-salas{
+.h5-li-box-salas {
     margin: 2.8rem 0 0 0;
 }
 
@@ -107,10 +116,11 @@ select {
     background: url(../imagens/seta-select.png) 96% / 5% no-repeat;
 }
 
+
 .btn {
     width: 60%;
     color: var(--white);
-    background: linear-gradient(94deg,  var(--blue-dark) 0%, rgba(167, 188, 201, 1) 100%);
+    background: linear-gradient(94deg, var(--blue-dark) 0%, rgba(167, 188, 201, 1) 100%);
     border-radius: 50px;
     letter-spacing: 0.02em;
     font-size: 16px;
@@ -592,6 +602,10 @@ input:checked+.slider:before {
     z-index: 100;
 }
 
+.modal-sala {
+    height: 44%;
+}
+
 .modal {
     align-items: center;
     background-color: var(--white);
@@ -615,6 +629,10 @@ input:checked+.slider:before {
 
 .modal .h4-topo {
     margin-top: 5% !important;
+}
+
+.espaco-oncln {
+    margin-top: 4%;
 }
 
 .on-off {
@@ -728,9 +746,9 @@ input:checked+.slider:before {
     text-align: center;
     color: white;
     border-radius: 10px;
-    margin: 2% 0 0 34.5%;
+    margin: 2% 0 0 34.3%;
     -webkit-animation-name: slideDown;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 2s;
     -webkit-animation-timing-function: cubic-bezier(1, 0, 0, 1);
     position: absolute;
     display: flex;
@@ -757,7 +775,7 @@ input:checked+.slider:before {
     text-align: center;
     color: var(--white);
     border-radius: 10px;
-    margin: 1% 0 0 34%;
+    margin: 1% 0 0 34.3%;
     -webkit-animation-name: slideDown;
     -webkit-animation-duration: 2s;
     -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);

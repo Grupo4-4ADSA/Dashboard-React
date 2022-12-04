@@ -4,9 +4,9 @@ import api from '../../Api'
 import '../../html-css-template/css/style-global.css';
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import ImgVoltar from '../../html-css-template/imagens/voltar.png';
+import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
 import ListaEmUso from "../../componentes/listas/ListaBtnEmUso";
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 
 function SalaEmUso(props) {
     const navigate = useNavigate();

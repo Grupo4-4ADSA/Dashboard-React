@@ -4,8 +4,8 @@ import '../../html-css-template/css/style-global.css';
 import { useNavigate } from 'react-router-dom';
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import ImgDesVoltar from '../../html-css-template/imagens/voltar.png';
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import ImgDesVoltar from '../../html-css-template/imagens/voltar.svg';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 import ChartConsumo from '../../componentes/consumo/ChartEquipamentoConsumo';
 import Detalhes from './Detalhes'
 

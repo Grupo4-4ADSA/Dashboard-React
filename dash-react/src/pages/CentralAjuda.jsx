@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import '../html-css-template/css/style-global.css';
 import NavSupCentro from '../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../componentes/navbar/NavEsquerdo';
-import ImgVoltar from '../html-css-template/imagens/voltar.png';
-import LogoOnclnBranco from '../html-css-template/imagens/img-logo/logo-branco.png';
+import ImgVoltar from '../html-css-template/imagens/voltar.svg';
+import LogoOnclnBranco from '../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 
 function Central(props) {
     const navigate = useNavigate();
@@ -33,9 +33,6 @@ function Central(props) {
                                 <h5>Email: contato@autg.com.br</h5>
                                 <h5>Telefone: (11) 0000-1111</h5>
                                 <button className="button-azul">Suporte 24 horas</button>
-                                <h3>Manuais de instruções</h3>
-                                <button>Manual de instalação</button><br /><br />
-                                <button>Manual de utilização da dashboard</button>
                         </div>
                     </div>
                 </div>

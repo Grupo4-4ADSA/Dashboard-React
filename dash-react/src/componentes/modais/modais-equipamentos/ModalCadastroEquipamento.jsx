@@ -8,7 +8,7 @@ import SelectEquipamento from '../../selects/SelectEquipamento';
 import api from "../../../Api";
 
 function ModalCadastroEquipamento(props) {
-    
+
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
 
@@ -31,7 +31,7 @@ function ModalCadastroEquipamento(props) {
         const dataInt = new Date(installationDate)
         console.log(dataInt.getTime())
         event.preventDefault()
-        api.Api.post("/equipments", {
+        api.Api.post(`equipments`, {
             nome: typeEquipament,
             tipo: typeEquipament,
             instalacao: dataInt,
@@ -45,16 +45,13 @@ function ModalCadastroEquipamento(props) {
 
         }).then(response => {
             console.log(response.status)
-
             setRespostaCerto(true)
             setRespostaErrado(false)
-            setTimeout(setRespostaCerto, 140000)
-            window.location.reload()
+            setTimeout(function () { window.location.reload() }, 2500);
         }).catch(erro => {
             console.log(erro)
             setRespostaErrado(true)
             setRespostaCerto(false)
-            setTimeout(setRespostaErrado, 7000)
         })
     }
 
@@ -70,20 +67,19 @@ function ModalCadastroEquipamento(props) {
             })
     }, [])
 
-    
+
     function requestSize(idSala) {
         api.Api.get(`/equipments/${idSala}`)
-        .then(response => {
-            setRequest(response.data)
-            console.log( requestSizes.length)
-        }).catch(erro => {
-            console.log(erro)
-        })
-       if (requestSizes.length < 11) {
-           setPorta(requestSizes.length)
-       } 
-}
-
+            .then(response => {
+                setRequest(response.data)
+                console.log(requestSizes.length)
+            }).catch(erro => {
+                console.log(erro)
+            })
+        if (requestSizes.length < 11) {
+            setPorta(requestSizes.length)
+        }
+    }
 
     return (
         <>
@@ -105,13 +101,12 @@ function ModalCadastroEquipamento(props) {
 
                     <form onSubmit={cadastrarEquipamento} className="cadastro-equipamento">
 
-                        <span >Sala desse equipamento:</span>
-
+                        <span>Sala desse equipamento:</span>
                         {
                             <SelectSala
                                 onChange={(e) => {
                                     setIdRoom(e.target.value)
-                                    requestSize(e.target.value)    
+                                    requestSize(e.target.value)
                                     rooms.map(valor => {
                                         if (valor.idRoom == e.target.value) {
                                             setidCLNBox(valor.idClnBox)
@@ -121,8 +116,7 @@ function ModalCadastroEquipamento(props) {
                                 data={rooms} />
                         }
 
-                        <span>Tipo do equipamento</span>
-
+                        <span>Tipo do equipamento:</span>
                         {
                             <SelectEquipamento
                                 onChange={(e) => {
@@ -138,22 +132,28 @@ function ModalCadastroEquipamento(props) {
                         />
 
                         <div className="input-lado">
-                            <span>Quantidade</span>
+                            <span>Quantidade:</span>
                             <input type="number"
-                                value={qtdEquipment} onChange={e => setQtdEquipment(e.target.value)}
-                                maxLength="3" />
+                                placeholder="Digite a quantidade"
+                                value={qtdEquipment} onChange={e =>
+                                    setQtdEquipment(e.target.value)}
+                                maxLength="3"
+                            />
                         </div>
 
                         <div className="input-lado a">
                             <span>Potência:</span>
                             <input type="number"
+                                placeholder="Digite a potência"
                                 value={potencyEquipment}
                                 onChange={e => setPotencyEquipment(e.target.value)}
-                                maxLength="5" />
+                                maxLength="5"
+                            />
                         </div>
 
                         <span>Vida útil em horas:</span>
                         <input type="number"
+                            placeholder="Digite a vida útil em horas"
                             value={lifespanEquipament}
                             onChange={e => setLifespan(e.target.value)}
                             maxLength="3" />

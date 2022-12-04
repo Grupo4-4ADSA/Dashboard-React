@@ -20,7 +20,8 @@ function ListaSalas(props) {
                         <td class="td-lista td-menor">{props.floor}</td>
                         <td class="td-lista"><img src={atencao} alt="" /></td>
                         <td class="td-lista-editar-deletar">
-                            <button className="editar" onClick={() => props.update(`${props.name}`, `${props.idRoom}`, `${props.floor}`)} >
+                            <button className="editar" onClick={() => 
+                                props.update(`${props.name}`, `${props.idRoom}`, `${props.floor}`)} >
                                 Editar/</button>
                             <button className="deletar" onClick={() => props.delete(`${props.idRoom}`)}>Deletar</button>
                         </td>

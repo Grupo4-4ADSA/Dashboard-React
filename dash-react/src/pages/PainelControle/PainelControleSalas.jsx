@@ -6,8 +6,8 @@ import '../../html-css-template/css/style-list.css';
 
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import ImgVoltar from '../../html-css-template/imagens/voltar.png';
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 import ListaEquipamentoPainel from '../../componentes/listas/ListaEquipamentoPainel'
 
 
@@ -21,7 +21,9 @@ function PainelSalas(props) {
     useEffect(() => {
         api.Api.get(`/equipments/${idSala}`)
             .then(response => {
-                setEquips(response.data)
+                if (response.status === 200) {
+                    setEquips(response.data)
+                }
                 setNameRoom(response.data[0].clnBox.sala.name)
             })
             .catch(erro => {
@@ -49,8 +51,7 @@ function PainelSalas(props) {
                         <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
 
                         <h2>Sala: {nameRoom}</h2>
-
-
+                        <h3 className="total">Total: {equips.length}</h3>
                         <div className="titulo">
                             <table className="table-lista">
                                 <thead>
@@ -75,7 +76,6 @@ function PainelSalas(props) {
                                             potency={equips.potencia}
                                             id={equips.idEquipamento}
                                             state={'desligado'}
-
                                         />
                                     ))
                                 }

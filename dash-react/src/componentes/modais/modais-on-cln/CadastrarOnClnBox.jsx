@@ -6,11 +6,13 @@ import SelectSala from '../../selects/SelectSala';
 
 import api from "../../../Api";
 
+
 function ModalCadastroOnCln(props) {
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
 
     const [idSala, setIdRoom] = useState([])
+    const [floor, setFloor] = useState([])
     const [qrCode, setQrCode] = useState([])
     const [rooms, setRooms] = useState([]);
 
@@ -28,19 +30,16 @@ function ModalCadastroOnCln(props) {
             console.log(response.status)
             setRespostaCerto(true)
             setRespostaErrado(false)
-            setTimeout(setRespostaCerto, 140000)
-            window.location.reload()
+            setTimeout(function () { window.location.reload() }, 3000)
         }).catch(erro => {
             console.log(erro)
             setRespostaErrado(true)
             setRespostaCerto(false)
-            setTimeout(setRespostaErrado, 7000)
         })
 
     }
 
     const idPredio = sessionStorage.idPredio
-
     useEffect(() => {
         api.Api.get(`rooms/apenas/salas/${idPredio}`)
             .then(response => {
@@ -66,6 +65,7 @@ function ModalCadastroOnCln(props) {
             <div className="modal-centro">
                 <div id="cadastro" className="modal">
                     <button onClick={props.closeModalCadastrar} className="btn-close lado" >X</button>
+
                     <h2>Cadastrar OnCln-Box</h2>
 
                     <form onSubmit={cadastrar}>
@@ -74,6 +74,7 @@ function ModalCadastroOnCln(props) {
                             <SelectSala
                                 onChange={(e) => {
                                     setIdRoom(e.target.value)
+                                    setFloor(e.target.value)
                                     console.log(e.target.value)
                                 }}
                                 data={rooms} />
@@ -81,11 +82,12 @@ function ModalCadastroOnCln(props) {
 
                         <h4 className="h4-topo">Qr-Code:</h4>
                         <input type="text" placeholder="Digite o qr-code"
-                            value={qrCode} onChange={e => setQrCode(e.target.value)}
-                            maxLength="200" />
+                            value={qrCode} onChange={e => setQrCode(e.target.value)} />
 
-                        <button onClick={props.closeModalCadastrar} className="button-cinza button-modal">Cancelar</button>
-                        <button className="button-azul lado button-modal" type="submit">Cadastrar</button>
+                        <div className="espaco-oncln">
+                            <button onClick={props.closeModalCadastrar} className="button-cinza button-modal">Cancelar</button>
+                            <button className="button-azul lado button-modal" type="submit">Cadastrar</button>
+                        </div>
                     </form>
                 </div>
             </div>

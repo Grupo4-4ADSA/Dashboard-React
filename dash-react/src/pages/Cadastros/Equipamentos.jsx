@@ -4,33 +4,42 @@ import '../../html-css-template/css/style-global.css';
 import '../../html-css-template/css/style-list.css';
 import api from '../../Api';
 import ListaEquipamento from '../../componentes/listas/ListaEquipamentos';
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import SelectsGerais from '../../componentes/selects/SelectsGerais';
-import ImgVoltar from '../../html-css-template/imagens/voltar.png';
+import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
 import ModalCadastro from '../../componentes/modais/modais-equipamentos/ModalCadastroEquipamento';
-
 import ModalEditar from '../../componentes/modais/modais-equipamentos/ModalEditarEquipamento';
-import ModalDeletar from '../../componentes/modais/modais-salas/ModalDeletar';
+import ModalDeletar from '../../componentes/modais/modais-equipamentos/ModalDeletarEquipamento';
 
-function Sala() {
+function Equipamento() {
 
     const [idRoom, setIdRoom] = useState([]);
     const [name, setName] = useState([]);
-    const [floor, setFloor] = useState([]);
-    const [idSala, setIdSala] = useState([]);
+    const [nameRoom, setNameRoom] = useState([]);
+    const [idEquipamentos, setIdEquipamento] = useState([]);
 
-    function setVariavel(pName, pIdRoom, pFloor) {
-        setName(pName)
-        setIdRoom(pIdRoom)
-        setFloor(pFloor)
-        console.log(pName)
+    const [typeEquipament, setType] = useState([])
+    const [installationDate, setinstallation] = useState([])
+    const [qtdEquipment, setQtdEquipment] = useState([])
+    const [potencyEquipment, setPotencyEquipment] = useState([])
+    const [lifespanEquipament, setLifespan] = useState([])
+    const [porta, setPorta] = useState([])
+
+    function setVariavel(pidEquip, pTypeEquipament,
+        pInstallationDate, pLifespanEquipament, pPotencyEquipment, pQtdEquipment, pnameRoom) {
+        setIdEquipamento(pidEquip)
+        setType(pTypeEquipament)
+        setinstallation(pInstallationDate)
+        setQtdEquipment(pQtdEquipment)
+        setPotencyEquipment(pPotencyEquipment)
+        setLifespan(pLifespanEquipament)
+        setNameRoom(pnameRoom)
         setShowModalEditar(true)
     }
 
-    function setVariavelDeletar(idRoom) {
-        setIdRoom(idRoom)
+    function setVariavelDeletar(idEquipamentos) {
+        setIdEquipamento(idEquipamentos)
         setShowModalDeletar(true)
     }
 
@@ -85,9 +94,13 @@ function Sala() {
 
             {showModalEditar ?
                 <ModalEditar
-                    idRoom={idRoom}
-                    name={name}
-                    floor={floor}
+                    idEquipamentos={idEquipamentos}
+                    typeEquipament={typeEquipament}
+                    installationDate={installationDate}
+                    qtdEquipment={qtdEquipment}
+                    potencyEquipment={potencyEquipment}
+                    qtdEquipamento={lifespanEquipament}
+                    nameRoom={nameRoom}
                     closeModalEditar={() =>
                         setShowModalEditar(false)}
                 /> : <></>
@@ -95,9 +108,8 @@ function Sala() {
 
             {showModalDeletar ?
                 <ModalDeletar
-                    idRoom={idRoom}
                     name={name}
-                    floor={floor}
+                    idEquipamento={idEquipamentos}
                     closeModalEditar={() =>
                         setShowModalDeletar(false)}
                 /> : <></>
@@ -120,9 +132,7 @@ function Sala() {
                     <div class="conteudo">
                         <div className="box-select-button">
                             <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
-                            <h2>Equipamentos cadastrados</h2>
-                              
-
+                            <h2>Equipamentos cadastrados: {equips.length}</h2>
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Cadastrar Equipamento</button>
                         </div>
 
@@ -152,7 +162,7 @@ function Sala() {
                                             nameRoom={equips.clnBox.sala.name}
                                             floor={equips.clnBox.sala.floor}
                                             type={equips.tipo}
-                                            id={equips.idEquipamento}
+                                            idEquipamento={equips.idEquipamento}
                                         />
                                     ))
                                 }
@@ -167,4 +177,4 @@ function Sala() {
 
 }
 
-export default Sala;
+export default Equipamento;

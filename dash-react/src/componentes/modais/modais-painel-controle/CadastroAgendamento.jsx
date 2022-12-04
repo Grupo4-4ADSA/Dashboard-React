@@ -15,15 +15,21 @@ function ModalCadastroAgendamento(props) {
     const [idSala, setIdRoom] = useState([])
 
     const [nomeSala, setNomeSala] = useState([])
+    const [dataInicio, setDataInicio] = useState([])
     const [andarSala, setAndarSala] = useState([])
+    const [horario, setHorario] = useState([])
+    const [ligar, setLigar] = useState([])
 
     const [rooms, setRooms] = useState([]);
 
     function cadastrarEquipamento(event) {
         event.preventDefault()
         console.log(nomeSala + " " + andarSala)
-        api.Api.post("/rooms", {
+        api.Api.post("/agendamentos", {
             name: nomeSala,
+            horario: horario,
+            data: dataInicio,
+            ligar: ligar,
             floor: andarSala
         }).then(response => {
             console.log(response.status)

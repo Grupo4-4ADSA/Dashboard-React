@@ -2,60 +2,52 @@ import React, { useState, useEffect } from "react";
 import '../../../html-css-template/css/style-global.css';
 import RespostaCerto from '../../respostas-crud/RespostaCerto';
 import RespostaErro from '../../respostas-crud/RespostaErro';
-import SelectSala from '../../selects/SelectSala';
 import SelectEquipamento from '../../selects/SelectEquipamento';
+import ImgInfo from '../../../html-css-template/imagens/simbolo-de-informacao.png'
 
 import api from "../../../Api";
 
-function ModalCadastroEquipamento(props) {
-    
+function ModalEditar(props) {
+
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
 
     const [requestSizes, setRequest] = useState([])
 
+    const [salaEquip, setSalaEquip] = useState(props.nameRoom)
+
     const [name, setNameEquipament] = useState([])
-    const [typeEquipament, setType] = useState([])
-    const [installationDate, setinstallation] = useState([])
-    const [qtdEquipment, setQtdEquipment] = useState([])
-    const [potencyEquipment, setPotencyEquipment] = useState([])
-    const [lifespanEquipament, setLifespan] = useState([])
-    const [porta, setPorta] = useState([])
+
+    const [tipoEquip, setType] = useState(props.tipo)
+    const [instalacaoEquip, setinstallation] = useState(props.instalacao)
+    const [vidaUtilEquip, setLifespan] = useState(props.vidaUtil)
+    const [potenciaEquip, setPotencyEquipment] = useState(props.potencia)
+    const [qtdEquipmentEquip, setQtdEquipment] = useState(props.qtdEquipamento)
+    const [portaEquip, setPorta] = useState(props.porta)
 
     const [idSala, setIdRoom] = useState([])
-
     const [idCln, setidCLNBox] = useState([])
     const [rooms, setRooms] = useState([])
 
     function editarEquipamento(event) {
-        const dataInt = new Date(installationDate)
-        console.log(dataInt.getTime())
-        event.preventDefault()
-        api.Api.patch(`/equipments/${props.idRoom}/`, {
-            nome: typeEquipament,
-            tipo: typeEquipament,
-            instalacao: dataInt,
-            vidaUtil: lifespanEquipament,
-            potencia: potencyEquipment,
-            qtdEquipamento: qtdEquipment,
-            porta: porta,
-            clnBox: {
-                idCLNBox: idCln
-            }
-
-        }).then(response => {
-            console.log(response.status)
-
-            setRespostaCerto(true)
-            setRespostaErrado(false)
-            setTimeout(setRespostaCerto, 140000)
-            window.location.reload()
-        }).catch(erro => {
-            console.log(erro)
-            setRespostaErrado(true)
-            setRespostaCerto(false)
-            setTimeout(setRespostaErrado, 7000)
-        })
+        const dataInt = new Date(instalacaoEquip)
+        if (typeof props.idEquipamentos !== "undefined") {
+            event.preventDefault()
+            api.Api.patch(`equipments/${props.idEquipamentos}`, {
+                tipo: tipoEquip,
+                instalacao: dataInt,
+                vidaUtil: vidaUtilEquip,
+                potencia: potenciaEquip,
+                qtdEquipamento: qtdEquipmentEquip
+            }).then(response => {
+                setRespostaCerto(true)
+                setRespostaErrado(false)
+                setTimeout(function () { window.location.reload() }, 2500)
+            }).catch(erro => {
+                setRespostaErrado(true)
+                setRespostaCerto(false)
+            })
+        }
     }
 
     const idPredio = sessionStorage.idPredio
@@ -70,20 +62,19 @@ function ModalCadastroEquipamento(props) {
             })
     }, [])
 
-    
+
     function requestSize(idSala) {
         api.Api.get(`/equipments/${idSala}`)
-        .then(response => {
-            setRequest(response.data)
-            console.log( requestSizes.length)
-        }).catch(erro => {
-            console.log(erro)
-        })
-       if (requestSizes.length < 11) {
-           setPorta(requestSizes.length)
-       } 
-}
-
+            .then(response => {
+                setRequest(response.data)
+                console.log(requestSizes.length)
+            }).catch(erro => {
+                console.log(erro)
+            })
+        if (requestSizes.length < 11) {
+            setPorta(requestSizes.length)
+        }
+    }
 
     return (
         <>
@@ -105,24 +96,18 @@ function ModalCadastroEquipamento(props) {
 
                     <form onSubmit={editarEquipamento} className="cadastro-equipamento">
 
-                        <span >Sala desse equipamento:</span>
+                        <span >Sala desse equipamento:
+                            <span data-tooltip="Para alterar este campo entre em contato com o suporte">
+                                <img src={ImgInfo} alt="" />
+                            </span>
+                        </span>
 
-                        {
-                            <SelectSala
-                                onChange={(e) => {
-                                    setIdRoom(e.target.value)
-                                    requestSize(e.target.value)    
-                                    rooms.map(valor => {
-                                        if (valor.idRoom == e.target.value) {
-                                            setidCLNBox(valor.idClnBox)
-                                        }
-                                    })
-                                }}
-                                data={rooms} />
-                        }
+                        <input className="input-editar" type="text"
+                            defaultValue={(`${props.nameRoom}`)}
+                            onChange={e => setSalaEquip(e.target.value)} disabled
+                        />
 
-                        <span>Tipo do equipamento</span>
-
+                        <span>Tipo do equipamento:</span>
                         {
                             <SelectEquipamento
                                 onChange={(e) => {
@@ -133,28 +118,31 @@ function ModalCadastroEquipamento(props) {
 
                         <span>Data da instalação:</span>
                         <input type="date"
-                            value={installationDate}
                             onChange={e => setinstallation(e.target.value)}
                         />
 
                         <div className="input-lado">
-                            <span>Quantidade</span>
+                            <span>Quantidade:</span>
                             <input type="number"
-                                value={qtdEquipment} onChange={e => setQtdEquipment(e.target.value)}
+                                placeholder="Digite quantidade"
+                                defaultValue={(`${props.qtdEquipment}`)}
+                                onChange={e => setQtdEquipment(e.target.value)}
                                 maxLength="3" />
                         </div>
 
                         <div className="input-lado a">
                             <span>Potência:</span>
                             <input type="number"
-                                value={potencyEquipment}
+                                placeholder="Digite potência"
+                                defaultValue={(`${props.potencia}`)}
                                 onChange={e => setPotencyEquipment(e.target.value)}
                                 maxLength="5" />
                         </div>
 
                         <span>Vida útil em horas:</span>
                         <input type="number"
-                            value={lifespanEquipament}
+                            placeholder="Digite vida útil em horas"
+                            defaultValue={(`${props.vidaUtil}`)}
                             onChange={e => setLifespan(e.target.value)}
                             maxLength="3" />
 
@@ -169,4 +157,4 @@ function ModalCadastroEquipamento(props) {
     )
 }
 
-export default ModalCadastroEquipamento;
+export default ModalEditar;

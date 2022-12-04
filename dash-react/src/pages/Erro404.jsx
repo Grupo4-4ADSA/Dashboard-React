@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../html-css-template/css/style-global.css';
 import '../html-css-template/css/style-efeitos.css';
-import logoOncln from '../html-css-template/imagens/img-logo/logo-cln.png'
+import logoOncln from '../html-css-template/imagens/img-logo/logo-cln-branco.svg'
 import fundoPageErro from '../html-css-template/imagens/img-404/imgFundo404.png'
 import { useNavigate } from 'react-router-dom'
 import autentica from '../Api'

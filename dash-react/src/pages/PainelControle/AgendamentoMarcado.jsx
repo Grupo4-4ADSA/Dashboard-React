@@ -4,12 +4,12 @@ import '../../html-css-template/css/style-global.css';
 import '../../html-css-template/css/style-list.css';
 import api from '../../Api';
 import ListaAgendamento from '../../componentes/listas/ListaAgendamento';
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import ImgVoltar from '../../html-css-template/imagens/voltar.png';
+import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
 import ModalCadastro from '../../componentes/modais/modais-painel-controle/CadastroAgendamento';
-import ModalEditar from '../../componentes/modais/modais-salas/ModalEditar';
+import ModalEditar from '../../componentes/modais/modais-painel-controle/EditarAgendamento';
 import ModalDeletar from '../../componentes/modais/modais-salas/ModalDeletar';
 
 function PainelAgendamentoMarcado({ route, navigation }) {

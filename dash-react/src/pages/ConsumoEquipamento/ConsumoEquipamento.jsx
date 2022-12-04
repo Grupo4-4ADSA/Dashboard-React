@@ -4,10 +4,10 @@ import '../../html-css-template/css/style-global.css';
 import '../../html-css-template/css/style-list.css';
 import api from '../../Api';
 import ListaEquipamentoConsumo from '../../componentes/listas/ListaEquipamentosConsumo';
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import ImgVoltar from '../../html-css-template/imagens/voltar.png';
+import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
 
 function Sala() {
     const navigate = useNavigate();

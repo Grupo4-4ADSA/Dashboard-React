@@ -13,15 +13,15 @@ function ModalDeletar(props) {
     var setRespostaCerta
     setRespostaCerta = document.getElementById('respostaErrada')
 
-    function deletar(idSalaSelecionada) {
-        if (typeof idSalaSelecionada !== "undefined") {
-            api.Api.delete(`/rooms/${idSalaSelecionada}`)
-                .then(() => {
-                    console.log("excluido com sucesso")
-                    document.location.reload(true);
-                    setRespostaCerto(true)
+    function deletar(idEquipamentoSelecionado) {
+        if (typeof idEquipamentoSelecionado !== "undefined") {
+            api.Api.delete(`/equipments/${idEquipamentoSelecionado}`)
+                .then(response => {
+                    console.log(response.status)
                     setRespostaErrado(false)
-                    setTimeout(function () { window.location.reload() }, 2500)
+                    setRespostaCerto(true)
+                    document.location.reload(true);
+                    setTimeout(function () { window.location.reload() }, 2500);
                 }).catch(erro => {
                     console.log(erro)
                     setRespostaErrado(true)
@@ -32,8 +32,8 @@ function ModalDeletar(props) {
 
     return (
         <>
-            {respostaCerto ? <RespostaCerto
-                texto={"Cadastrado com sucesso!"}
+             {respostaCerto ? <RespostaCerto
+                texto={"Deletado com sucesso!"}
                 closeRespostaCerto={
                     () => setRespostaCerto(false)} /> : <></>}
 
@@ -44,13 +44,13 @@ function ModalDeletar(props) {
 
             <div className="modal-centro">
                 <div className="modal">
-                    <button onClick={props.closeModalEditar} className="btn-close lado"  >X</button>
+                    <button onClick={props.closeModalEditar} className="btn-close lado">X</button>
                     <div className="centralizar">
                         <h3>Tem certeza que deseja Deletar?</h3>
                     </div>
                     <button className="button-cinza button-modal" onClick={props.closeModalEditar} >Cancelar</button>
                     <button className="button-azul lado button-modal" type="submit"
-                        onClick={() => deletar(props.idRoom)}>Deletar</button>
+                        onClick={() => deletar(props.idEquipamento)}>Deletar</button>
                 </div>
             </div>
         </>

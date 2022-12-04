@@ -5,9 +5,9 @@ import '../html-css-template/css/style-global.css';
 import NavSupCentro from '../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../componentes/navbar/NavEsquerdo';
 import BtnsDirecionar from '../componentes/btns-home/btns-home';
-import ImgVoltar from '../html-css-template/imagens/voltar.png';
+import ImgVoltar from '../html-css-template/imagens/voltar.svg';
 import ListaHome from "../componentes/listas/ListaHome";
-import LogoOnclnBranco from '../html-css-template/imagens/img-logo/logo-branco.png';
+import LogoOnclnBranco from '../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 
 function Home(props) {
     const navigate = useNavigate();

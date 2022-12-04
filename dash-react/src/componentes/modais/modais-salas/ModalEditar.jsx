@@ -1,7 +1,8 @@
 import React, { useState  } from "react";
 import '../../../html-css-template/css/style-global.css';
 import RespostaCerto from '../../respostas-crud/RespostaCerto';
-import RespostaErrado from '../../respostas-crud/RespostaErro'
+import RespostaErro from '../../respostas-crud/RespostaErro';
+
 import ImgInfo from '../../../html-css-template/imagens/simbolo-de-informacao.png'
 
 import api from "../../../Api";
@@ -16,29 +17,33 @@ function Modal(props) {
     function atualizar(event) {
         event.preventDefault()
         if (typeof props.idRoom !== "undefined") {
-            api.Api.put(`/rooms/${props.idRoom}/`, {
+            api.Api.put(`/rooms/${props.idRoom}`, {
                 name: nomeSala,
                 floor: andarSala
-
             }).then(response => {
                 console.log(response.status)
                 setRespostaCerto(true)
                 setRespostaErrado(false)
-                setTimeout(setRespostaCerto, 10000)
-                window.location.reload()
+                setTimeout(function () { window.location.reload() }, 2500)
             }).catch(erro => {
                 console.log(erro)
                 setRespostaErrado(true)
                 setRespostaCerto(false)
-                setTimeout(setRespostaErrado, 7000)
             })
         }
     }
 
     return (
         <>
-            {respostaCerto ? <RespostaCerto /> : <></>}
-            {respostaErrado ? <RespostaErrado /> : <></>}
+           {respostaCerto ? <RespostaCerto
+                texto={"Atualizado com sucesso!"}
+                closeRespostaCerto={
+                    () => setRespostaCerto(false)} /> : <></>}
+
+            {respostaErrado ? <RespostaErro
+                texto={"Erro ao editar"}
+                closeRespostaErro={
+                    () => setRespostaErrado(false)} /> : <></>}
 
             <div className="modal-centro">
                 <div id="cadastro" className="modal">

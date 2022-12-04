@@ -81,11 +81,11 @@
 }
 
 .organiza-lista .td-lista-editar-deletar .editar {
-    background: rgba(255, 255, 255, 0) url(../imagens/img-editar-deletar/edit.png) no-repeat 2% center;
+    background: rgba(255, 255, 255, 0) url(../imagens/img-editar-deletar/edt.svg) no-repeat 2% center;
 }
 
 .organiza-lista .td-lista-editar-deletar .deletar {
-    background: rgba(255, 255, 255, 0) url(../imagens/img-editar-deletar/trash.png) no-repeat 2% center;
+    background: rgba(255, 255, 255, 0) url(../imagens/img-editar-deletar/trash.svg) no-repeat 2% center;
 }
 
 /* Tabelas */

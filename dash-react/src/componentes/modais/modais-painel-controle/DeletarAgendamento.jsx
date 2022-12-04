@@ -19,28 +19,19 @@ function ModalDeletar(props) {
                 .then(() => {
                     console.log("excluido com sucesso")
                     document.location.reload(true);
-                    setRespostaCerto(true)
-                    setRespostaErrado(false)
-                    setTimeout(function () { window.location.reload() }, 2500)
-                }).catch(erro => {
-                    console.log(erro)
-                    setRespostaErrado(true)
-                    setRespostaCerto(false)
                 })
         }
     }
 
     return (
         <>
-            {respostaCerto ? <RespostaCerto
-                texto={"Cadastrado com sucesso!"}
-                closeRespostaCerto={
-                    () => setRespostaCerto(false)} /> : <></>}
+            {respostaCerto ? <RespostaCerto closeRespostaCerto={
+                () => setRespostaCerto(false)}
+            /> : <></>}
 
-            {respostaErrado ? <RespostaErro
-                texto={"Erro ao deletar"}
-                closeRespostaErro={
-                    () => setRespostaErrado(false)} /> : <></>}
+            {respostaErrado ? <RespostaErro closeRespostaErro={
+                () => setRespostaErrado(false) && setRespostaCerta.value("Erro ao deletar")
+            } /> : <></>}
 
             <div className="modal-centro">
                 <div className="modal">

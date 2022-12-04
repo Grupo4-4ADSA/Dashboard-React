@@ -5,8 +5,8 @@ import ImgAgendamentoMarcado from '../../html-css-template/imagens/img-painel-co
 import ImgEmUso from '../../html-css-template/imagens/img-painel-controle/em-uso.png';
 import NavSupCentro from '../../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
-import ImgVoltar from '../../html-css-template/imagens/voltar.png';
-import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-branco.png';
+import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
+import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 
 function PainelDeControle(props) {
     const navigate = useNavigate();

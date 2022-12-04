@@ -4,8 +4,8 @@ import NavSupCentro from '../componentes/navbar/NavSupCentro';
 import NavEsquerdo from '../componentes/navbar/NavEsquerdo';
 import Chart from '../componentes/consumo/Chart';
 import TableConsumo from '../componentes/consumo/TableResumoConsumo';
-import ImgVoltar from '../html-css-template/imagens/voltar.png';
-import LogoOnclnBranco from '../html-css-template/imagens/img-logo/logo-branco.png';
+import ImgVoltar from '../html-css-template/imagens/voltar.svg';
+import LogoOnclnBranco from '../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 
 import api from "../Api";
 
