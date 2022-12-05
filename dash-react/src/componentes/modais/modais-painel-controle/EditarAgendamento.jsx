@@ -16,13 +16,18 @@ function Modal(props) {
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
 
+    const [dataStart, setDataStart] = useState([])
+    const [hour, setHour] = useState([])
+    const [on, setOn] = useState([])
+
     function atualizar(event) {
         event.preventDefault()
         if (typeof props.idRoom !== "undefined") {
             api.Api.put(`/agendamentos/${idAgendamento}`, {
-                name: nomeSala,
-                floor: andarSala
-
+                idScheduling: idAgendamento,
+                dataStart: dataStart,
+                hour : hour,
+                sala : idSala
             }).then(response => {
                 console.log(response.status)
                 setRespostaCerto(true)
@@ -60,12 +65,6 @@ function Modal(props) {
 
                                 data={rooms} />
                         }
-                        <span >Andar</span>
-                        {<SelectAndar
-                            floor={rooms.map(rooms => (
-                                <option value={rooms.id}>{rooms.floor}</option>
-                            ))} />}
-
                         <div className="input-lado">
                             <span>Data inicial:</span>
                             <input type="date"

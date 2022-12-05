@@ -20,7 +20,7 @@ function Equipamento() {
     const [idEquipamentos, setIdEquipamento] = useState([]);
 
     const [typeEquipament, setType] = useState([])
-    const [installationDate, setinstallation] = useState([])
+    const [installationDate, setInstallation] = useState([])
     const [qtdEquipment, setQtdEquipment] = useState([])
     const [potencyEquipment, setPotencyEquipment] = useState([])
     const [lifespanEquipament, setLifespan] = useState([])
@@ -30,7 +30,7 @@ function Equipamento() {
         pInstallationDate, pLifespanEquipament, pPotencyEquipment, pQtdEquipment, pnameRoom) {
         setIdEquipamento(pidEquip)
         setType(pTypeEquipament)
-        setinstallation(pInstallationDate)
+        setInstallation(pInstallationDate)
         setQtdEquipment(pQtdEquipment)
         setPotencyEquipment(pPotencyEquipment)
         setLifespan(pLifespanEquipament)

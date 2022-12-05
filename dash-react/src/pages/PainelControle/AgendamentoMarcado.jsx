@@ -10,28 +10,35 @@ import NavEsquerdo from '../../componentes/navbar/NavEsquerdo';
 import ImgVoltar from '../../html-css-template/imagens/voltar.svg';
 import ModalCadastro from '../../componentes/modais/modais-painel-controle/CadastroAgendamento';
 import ModalEditar from '../../componentes/modais/modais-painel-controle/EditarAgendamento';
-import ModalDeletar from '../../componentes/modais/modais-salas/ModalDeletar';
+import ModalDeletar from '../../componentes/modais/modais-painel-controle/DeletarAgendamento';
 
 function PainelAgendamentoMarcado({ route, navigation }) {
-    const [idRoom, setIdRoom] = useState([]);
+    const [idSala, setIdRoom] = useState([]);
     const [name, setName] = useState([]);
     const [floor, setFloor] = useState([]);
+    const [idAgendamentos, setIdAgendamento] = useState([]);
+    const [dataStart, setDataStart] = useState([])
+    const [hour, setHour] = useState([])
+    const [on, setOn] = useState([])
+    const [nameRoom, setNameRoom] = useState([]);
 
-    function setVariavel(pName, pIdRoom, pFloor) {
-        setName(pName)
-        setIdRoom(pIdRoom)
-        setFloor(pFloor)
-        console.log(pName)
+
+    function setVariavel(pnameRoom, pIAgendamento, pData, pHorario, pLigar, pIdSala) {
+        setIdAgendamento(pIAgendamento)
+        setDataStart(pData)
+        setNameRoom(pnameRoom)
+        setHour(pHorario)
+        setOn(pLigar)
+        setIdRoom(pIdSala)
         setShowModalEditar(true)
     }
 
-    function setVariavelDeletar(idRoom) {
-        setIdRoom(idRoom)
+    function setVariavelDeletar(idAgendamentos) {
+        setIdAgendamento(idAgendamentos)
         setShowModalDeletar(true)
     }
 
     /* Abre modal cadastrar*/
-    
     const [showModalCadastrar, setShowModalCadastrar] = useState(false)
     const showOrHideCadastro = () => setShowModalCadastrar(true)
 
@@ -44,14 +51,17 @@ function PainelAgendamentoMarcado({ route, navigation }) {
     const navigate = useNavigate();
 
     const [rooms, setRooms] = useState([]);
+    const [scheduling, setAgendamentos] = useState([]);
     console.log(rooms)
 
     const idPredio = sessionStorage.idPredio
 
     useEffect(() => {
-        api.Api.get(`/rooms/${idPredio}`)
+        api.Api.get(`/agendamentos/predio/${idPredio}`)
             .then(response => {
-                setRooms(response.data)
+                if (response.status === 200) {
+                    setAgendamentos(response.data)
+                }
             })
             .catch(erro => {
                 console.log(erro)
@@ -71,9 +81,11 @@ function PainelAgendamentoMarcado({ route, navigation }) {
 
             {showModalEditar ?
                 <ModalEditar
-                    idRoom={idRoom}
-                    name={name}
-                    floor={floor}
+                    idScheduling={idAgendamentos}
+                    dataStart={dataStart}
+                    hour={hour}
+                    on={on}
+                    sala={idSala}
                     closeModalEditar={() =>
                         setShowModalEditar(false)}
                 /> : <></>
@@ -81,9 +93,7 @@ function PainelAgendamentoMarcado({ route, navigation }) {
 
             {showModalDeletar ?
                 <ModalDeletar
-                    idRoom={idRoom}
-                    name={name}
-                    floor={floor}
+                    idScheduling={idAgendamentos}
                     closeModalEditar={() =>
                         setShowModalDeletar(false)}
                 /> : <></>
@@ -112,32 +122,36 @@ function PainelAgendamentoMarcado({ route, navigation }) {
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Agendar horário</button>
                         </div>
 
+                        <div className="titulo">
+                            <table className="table-lista">
+                                <thead>
+                                    <th >Sala</th>
+                                    <th className="menor">Id</th>
+                                    <th className="menor">Andar</th>
+                                    <th className="menor">Data inicial</th>
+                                    <th className="menor">Hora</th>
+                                    <th className="menor">Função</th>
+                                    <th >Ação</th>
+                                </thead>
+                            </table>
+                        </div>
+
                         <div className="list organiza-lista">
                             <table className="table-lista">
-                                <li className="title-lista">
-                                    <thead>
-                                        <tr className="th-agendamento">
-                                            <th >Sala</th>
-                                            <th className="menor">Andar</th>
-                                            <th className="menor">Data inicial</th>
-                                            <th className="menor">Data final</th>
-                                            <th className="menor">Hora</th>
-                                            <th className="menor">Função</th>
-                                            <th >Ação</th>
-                                        </tr>
-                                    </thead>
-                                </li>
-
                                 {
-                                    rooms.map(rooms => (
+                                    scheduling.map(scheduling => (
                                         <ListaAgendamento
                                             update={setVariavel}
                                             delete={setVariavelDeletar}
-                                            name={rooms.name}
-                                            floor={rooms.floor}
-                                            idRoom={rooms.idRoom}
+                                            nameRoom={scheduling.sala.name}
+                                            floor={scheduling.sala.floor}
+                                            idScheduling={scheduling.idAgendamento}
+                                            date={scheduling.data}
+                                            hour={scheduling.horario}
+                                            acao={scheduling.ligar}
                                         />
                                     ))
+
                                 }
                             </table>
                         </div>

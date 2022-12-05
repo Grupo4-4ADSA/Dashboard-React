@@ -10,9 +10,6 @@ function ModalDeletar(props) {
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
 
-    var setRespostaCerta
-    setRespostaCerta = document.getElementById('respostaErrada')
-
     function deletar(idEquipamentoSelecionado) {
         if (typeof idEquipamentoSelecionado !== "undefined") {
             api.Api.delete(`/equipments/${idEquipamentoSelecionado}`)
@@ -20,7 +17,6 @@ function ModalDeletar(props) {
                     console.log(response.status)
                     setRespostaErrado(false)
                     setRespostaCerto(true)
-                    document.location.reload(true);
                     setTimeout(function () { window.location.reload() }, 2500);
                 }).catch(erro => {
                     console.log(erro)

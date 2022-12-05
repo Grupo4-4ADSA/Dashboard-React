@@ -26,11 +26,13 @@ function ModalCadastroAgendamento(props) {
         event.preventDefault()
         console.log(nomeSala + " " + andarSala)
         api.Api.post("/agendamentos", {
-            name: nomeSala,
-            horario: horario,
             data: dataInicio,
+            horario: horario,
             ligar: ligar,
-            floor: andarSala
+            sala: {
+                idRoom: idSala
+            }
+
         }).then(response => {
             console.log(response.status)
             setRespostaCerto(true)
@@ -77,48 +79,45 @@ function ModalCadastroAgendamento(props) {
                     <form onSubmit={cadastrarEquipamento} className="cadastro-equipamento">
 
                         <span >Sala desse agendamento:</span>
-                        {                
+                        {
                             <SelectSala
-                            onChange={(e)=>{
-                                setIdRoom(e.target.value)
-                                console.log(idSala)
-                            }}
-                                
-                            data={rooms}/>
+                                onChange={(e) => {
+                                    setIdRoom(e.target.value)
+                                    console.log(idSala)
+                                }}
+
+                                data={rooms} />
                         }
-                        <span >Andar</span>
-                        {<SelectAndar
-                                floor={rooms.map(rooms => (
-                                    <option value={rooms.id}>{rooms.floor}</option>
-                                ))} />  }
 
                         <div className="input-lado">
                             <span>Data inicial:</span>
                             <input type="date"
-                                value={andarSala}
-                                onChange={e => setAndarSala(e.target.value)}
+                                value={dataInicio}
+                                onChange={e => setDataInicio(e.target.value)}
                             />
                         </div>
 
                         <div className="input-lado a">
                             <span>Data final:</span>
                             <input type="date"
-                                value={andarSala}
-                                onChange={e => setAndarSala(e.target.value)}
                             />
                         </div>
                         <span>Horário:</span>
-                        <input type="number"
+                        <input type="time"
                             /*  value={vidaUtil} */
-                            onChange={e => setAndarSala(e.target.value)}
+                            onChange={e => setHorario(e.target.value)}
                             maxLength="3" />
-                        
+
                         <span> Função do agendamento: </span>
-                       
+
                         <div className="on-off">
-                            <input type="radio" name="nome_do_grupo" value="true"/>
+                            <input type="radio" name="nome_do_grupo" value="true"
+                                onChange={e => setLigar(e.target.value)} />
+                                
                             <span>Ligar</span>
-                            <input type="radio" name="nome_do_grupo" value="false"/>
+                            <input type="radio" name="nome_do_grupo" value="false"
+                                onChange={e => setLigar(e.target.value)} />
+
                             <span> Desligar</span>
                         </div>
                         <div className="button-top">

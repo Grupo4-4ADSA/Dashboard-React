@@ -118,6 +118,7 @@ function ModalEditar(props) {
 
                         <span>Data da instalação:</span>
                         <input type="date"
+                            defaultValue={(`${props.installationDate}`)}
                             onChange={e => setinstallation(e.target.value)}
                         />
 
