@@ -30,14 +30,12 @@ function ModalCadastroSalas(props) {
             console.log(response.status)
             setRespostaCerto(true)
             setRespostaErrado(false)
-            setTimeout(function () { window.location.reload() }, 2500)
+            setTimeout(function () { window.location.reload() }, 1800)
         }).catch(erro => {
             console.log(erro)
             setRespostaErrado(true)
             setRespostaCerto(false)
         })
-
-
     }
 
     useEffect(() => {

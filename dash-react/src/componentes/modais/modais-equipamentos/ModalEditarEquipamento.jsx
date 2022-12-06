@@ -126,7 +126,6 @@ function ModalEditar(props) {
                             <span>Quantidade:</span>
                             <input type="number"
                                 placeholder="Digite quantidade"
-                                defaultValue={(`${props.qtdEquipment}`)}
                                 onChange={e => setQtdEquipment(e.target.value)}
                                 maxLength="3" />
                         </div>

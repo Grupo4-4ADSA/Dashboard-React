@@ -9,7 +9,12 @@ import ListaEmUso from "../../componentes/listas/ListaBtnEmUso";
 import LogoOnclnBranco from '../../html-css-template/imagens/img-logo/logo-cln-branco.svg';
 
 function SalaEmUso(props) {
+
     const navigate = useNavigate();
+    function acessoAPage(idPage) {
+        sessionStorage.idSala = idPage;
+        navigate("/painel-controle-salas")
+    }
 
     const [rooms, setRooms] = useState([]);
     console.log(rooms)
@@ -45,18 +50,18 @@ function SalaEmUso(props) {
                     <div class="conteudo">
                         <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
 
-                        <h2>Salas em uso</h2>
+                        <h2>Salas em uso: {rooms.length}</h2>
                         <div className="btns-direcionar">
                             <div className="list-salas">
                                 {
                                     <ListaEmUso
                                         name={rooms.map(rooms => (
-                                            <button  onClick={() => navigate("/painel-controle-salas")} className="direcionar" value={rooms.id} >
+                                            <button onClick={() => acessoAPage(rooms.idRoom)} className="direcionar" value={rooms.idRoom} >
                                                 <h3>{rooms.name}</h3>
                                                 <h3>Andar:{rooms.floor}</h3>
-                                                
                                             </button>
-                                        ))} />
+                                        ))}
+                                    />
                                 }
                             </div>
                         </div>

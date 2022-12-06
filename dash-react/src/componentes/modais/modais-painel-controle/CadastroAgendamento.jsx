@@ -38,7 +38,7 @@ function ModalCadastroAgendamento(props) {
             setRespostaCerto(true)
             setRespostaErrado(false)
             setTimeout(setRespostaCerto, 140000)
-            window.location.reload()
+            setTimeout(function () { window.location.reload() }, 2500)
         }).catch(erro => {
             console.log(erro)
             setRespostaErrado(true)
@@ -89,19 +89,12 @@ function ModalCadastroAgendamento(props) {
                                 data={rooms} />
                         }
 
-                        <div className="input-lado">
-                            <span>Data inicial:</span>
-                            <input type="date"
-                                value={dataInicio}
-                                onChange={e => setDataInicio(e.target.value)}
-                            />
-                        </div>
+                        <span>Data inicial:</span>
+                        <input type="date"
+                            value={dataInicio}
+                            onChange={e => setDataInicio(e.target.value)}
+                        />
 
-                        <div className="input-lado a">
-                            <span>Data final:</span>
-                            <input type="date"
-                            />
-                        </div>
                         <span>Horário:</span>
                         <input type="time"
                             /*  value={vidaUtil} */
@@ -113,7 +106,7 @@ function ModalCadastroAgendamento(props) {
                         <div className="on-off">
                             <input type="radio" name="nome_do_grupo" value="true"
                                 onChange={e => setLigar(e.target.value)} />
-                                
+
                             <span>Ligar</span>
                             <input type="radio" name="nome_do_grupo" value="false"
                                 onChange={e => setLigar(e.target.value)} />

@@ -32,9 +32,11 @@ function ListaSalas(props) {
                         <td class="td-lista-editar-deletar">
                             <button className="editar" onClick={() =>
                                 props.update(
-                                    `${props.name}`,
-                                    `${props.idRoom}`,
-                                    `${props.floor}`)} >
+                                    `${props.idScheduling}`,
+                                    `${props.date}`,
+                                    `${props.hour}`,
+                                    `${props.acao}`,
+                                    `${props.idRoom}`)} >
                                 Editar/</button>
                             <button className="deletar" onClick={() => props.delete(`${props.idScheduling}`)}>Deletar</button>
                         </td>

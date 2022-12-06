@@ -23,13 +23,11 @@ function PainelAgendamentoMarcado({ route, navigation }) {
     const [nameRoom, setNameRoom] = useState([]);
 
 
-    function setVariavel(pnameRoom, pIAgendamento, pData, pHorario, pLigar, pIdSala) {
+    function setVariavel(pIAgendamento, pData, pHorario, pLigar) {
         setIdAgendamento(pIAgendamento)
         setDataStart(pData)
-        setNameRoom(pnameRoom)
         setHour(pHorario)
         setOn(pLigar)
-        setIdRoom(pIdSala)
         setShowModalEditar(true)
     }
 
@@ -117,7 +115,7 @@ function PainelAgendamentoMarcado({ route, navigation }) {
                     <div class="conteudo">
                         <div className="box-select-button">
                             <img className="voltar" onClick={() => navigate(-1)} src={ImgVoltar} alt="" />
-                            <h2>Agendamentos marcados</h2>
+                            <h2>Agendamentos marcados: {scheduling.length}</h2>
 
                             <button className=" lado button-azul" onClick={showOrHideCadastro} >Agendar horário</button>
                         </div>
@@ -149,6 +147,7 @@ function PainelAgendamentoMarcado({ route, navigation }) {
                                             date={scheduling.data}
                                             hour={scheduling.horario}
                                             acao={scheduling.ligar}
+                                            idRoom={scheduling.sala.idRoom}
                                         />
                                     ))
 

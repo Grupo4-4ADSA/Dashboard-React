@@ -5,7 +5,7 @@ function ListaEquipamentos(props) {
     return (
         <>
             {props.name}
-            
+
         </>
     )
 }

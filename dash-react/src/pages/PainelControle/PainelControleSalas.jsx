@@ -56,12 +56,11 @@ function PainelSalas(props) {
                             <table className="table-lista">
                                 <thead>
                                     <tr>
-                                        <th >Equipamento</th>
+                                        <th className="maior">Equipamento</th>
                                         <th >Id</th>
-                                        <th >Potência</th>
-                                        <th >Estado</th>
+                                        <th >Data da instalação</th>
+                                        <th className="maior">Potência</th>
                                         <th >Ação</th>
-                                        <th ></th>
                                     </tr>
                                 </thead>
                             </table>
@@ -75,7 +74,7 @@ function PainelSalas(props) {
                                             type={equips.tipo}
                                             potency={equips.potencia}
                                             id={equips.idEquipamento}
-                                            state={'desligado'}
+                                            data={equips.instalacao}
                                         />
                                     ))
                                 }

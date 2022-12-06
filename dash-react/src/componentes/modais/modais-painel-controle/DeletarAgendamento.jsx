@@ -20,7 +20,7 @@ function ModalDeletar(props) {
                     console.log(response.status)
                     setRespostaErrado(false)
                     setRespostaCerto(true)
-                    setTimeout(function () { window.location.reload() }, 2500);
+                    setTimeout(function () { window.location.reload() }, 1800);
                 }).catch(erro => {
                     console.log(erro)
                     setRespostaErrado(true)
@@ -31,8 +31,8 @@ function ModalDeletar(props) {
 
     return (
         <>
-          
-          {respostaCerto ? <RespostaCerto
+
+            {respostaCerto ? <RespostaCerto
                 texto={"Deletado com sucesso!"}
                 closeRespostaCerto={
                     () => setRespostaCerto(false)} /> : <></>}

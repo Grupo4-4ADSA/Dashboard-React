@@ -16,12 +16,11 @@ function ModalDeletar(props) {
     function deletar(idSalaSelecionada) {
         if (typeof idSalaSelecionada !== "undefined") {
             api.Api.delete(`/rooms/${idSalaSelecionada}`)
-                .then(() => {
-                    console.log("excluido com sucesso")
-                    document.location.reload(true);
-                    setRespostaCerto(true)
+                .then(response => {
+                    console.log(response.status)
                     setRespostaErrado(false)
-                    setTimeout(function () { window.location.reload() }, 2500)
+                    setRespostaCerto(true)
+                    setTimeout(function () { window.location.reload() }, 1800);
                 }).catch(erro => {
                     console.log(erro)
                     setRespostaErrado(true)
@@ -33,12 +32,12 @@ function ModalDeletar(props) {
     return (
         <>
             {respostaCerto ? <RespostaCerto
-                texto={"Cadastrado com sucesso!"}
+                texto={"Deletado com sucesso!"}
                 closeRespostaCerto={
                     () => setRespostaCerto(false)} /> : <></>}
 
             {respostaErrado ? <RespostaErro
-                texto={"Erro ao deletar"}
+                texto={"Erro, essa sala já possui associação com um oncln, entre em contato com o suporte"}
                 closeRespostaErro={
                     () => setRespostaErrado(false)} /> : <></>}
 

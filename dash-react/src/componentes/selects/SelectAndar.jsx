@@ -8,7 +8,7 @@ function SelectAndar(props) {
     var subsolo = props.subsolo
 
     var list = [];
-    
+
     if (subsolo > 0) {
         for (let i = 0; i < subsolo; i++) {
             list.push(i + 1 + "º Subsolo")
@@ -24,7 +24,7 @@ function SelectAndar(props) {
 
     return (
         <>
-            <select name="select-sala"  onChange={props.onChange}>
+            <select name="select-sala" onChange={props.onChange}>
                 <img src="" alt="" />
                 <option value="valor1" selected >Selecione um andar</option>
                 {list.map(value => (

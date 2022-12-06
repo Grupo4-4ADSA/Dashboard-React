@@ -57,13 +57,13 @@ h2 {
     margin-left: 44px;
 }
 
-.total{
+.total {
     align-items: center;
     margin-left: 44px;
 }
 
 .espaco {
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .titulo-lista-salas-home {
@@ -316,8 +316,6 @@ input::placeholder {
 
 .nav-info .user {
     height: 35px;
-    margin: 0 0 0 10px;
-    border-right: solid var(--light-color) 1px;
     padding: 0 10px 0 0;
 }
 
@@ -340,7 +338,6 @@ input::placeholder {
 .nav-info .user {
     height: 80%;
     margin: 0 0 0 10px;
-    border-right: solid var(--light-color) 1px;
     padding: 0 10px 0 0;
 }
 
@@ -792,6 +789,9 @@ input:checked+.slider:before {
     margin: auto;
 }
 
+.erro-maior {
+    height: 12vh;
+}
 .centralizar {
     text-align: center;
     padding: 10%;

@@ -31,8 +31,8 @@ function Equipamento() {
         setIdEquipamento(pidEquip)
         setType(pTypeEquipament)
         setInstallation(pInstallationDate)
-        setQtdEquipment(pQtdEquipment)
         setPotencyEquipment(pPotencyEquipment)
+        setQtdEquipment(pQtdEquipment)
         setLifespan(pLifespanEquipament)
         setNameRoom(pnameRoom)
         setShowModalEditar(true)
@@ -142,10 +142,10 @@ function Equipamento() {
                                     <tr>
                                         <th >Tipo</th>
                                         <th >Id</th>
+                                        <th >Quantidade</th>
                                         <th >Sala</th>
                                         <th >Andar</th>
                                         <th >Ação</th>
-                                        <th ></th>
                                     </tr>
                                 </thead>
                             </table>
@@ -159,6 +159,7 @@ function Equipamento() {
                                         <ListaEquipamento
                                             update={setVariavel}
                                             delete={setVariavelDeletar}
+                                            qtdEquipment={equips.qtdEquipamento}
                                             nameRoom={equips.clnBox.sala.name}
                                             floor={equips.clnBox.sala.floor}
                                             type={equips.tipo}
