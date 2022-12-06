@@ -27,7 +27,10 @@ function Modal(props) {
                 idAgendamento: idAgendamento,
                 data: dataStart,
                 horario : hour,
-                ligar: on
+                ligar: on,
+                sala :{
+                    idRoom: idSala
+                } 
             }).then(response => {
                 setRespostaCerto(true)
                 setRespostaErrado(false)
@@ -54,7 +57,7 @@ function Modal(props) {
     return (
         <>
        {respostaCerto ? <RespostaCerto
-                texto={"Atualizado com sucesso!"}
+                texto={"Atualizadocom sucesso!"}
                 closeRespostaCerto={
                     () => setRespostaCerto(false)} /> : <></>}
 
