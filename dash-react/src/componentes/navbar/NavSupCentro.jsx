@@ -29,7 +29,7 @@ function ItemNavSupCen(props) {
             </div>
 
             <div class="nav-info">
-                <span>{nome}</span>
+                <span>Olá {nome}</span>
                 <img className="user" src={IconAvatar} alt="" />
             </div>
         </>

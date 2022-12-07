@@ -15,6 +15,7 @@ function Modal(props) {
     const [rooms, setRooms] = useState([]);
     const [respostaCerto, setRespostaCerto] = useState(false)
     const [respostaErrado, setRespostaErrado] = useState(false)
+    const [salaEquip, setSalaAgendamento] = useState(props.nameRoom)
 
     const [dataStart, setDataStart] = useState(props.dataStart)
     const [hour, setHour] = useState(props.hour)
@@ -26,11 +27,8 @@ function Modal(props) {
             api.Api.put(`/agendamentos/${idAgendamento}`, {
                 idAgendamento: idAgendamento,
                 data: dataStart,
-                horario : hour,
-                ligar: on,
-                sala :{
-                    idRoom: idSala
-                } 
+                horario: hour,
+                ligar: on
             }).then(response => {
                 setRespostaCerto(true)
                 setRespostaErrado(false)
@@ -53,16 +51,16 @@ function Modal(props) {
                 console.log(erro)
             })
     }, [])
-    
+
     return (
         <>
-       {respostaCerto ? <RespostaCerto
+            {respostaCerto ? <RespostaCerto
                 texto={"Atualizadocom sucesso!"}
                 closeRespostaCerto={
                     () => setRespostaCerto(false)} /> : <></>}
 
             {respostaErrado ? <RespostaErro
-                texto={"Erro ao deletar"}
+                texto={"Erro ao editar"}
                 closeRespostaErro={
                     () => setRespostaErrado(false)} /> : <></>}
 
@@ -73,22 +71,22 @@ function Modal(props) {
 
                     <form onSubmit={atualizar} className="cadastro-equipamento">
 
-                        <span >Sala desse agendamento:</span>
-                        {
-                            <SelectSala
-                                onChange={(e) => {
-                                    setIdRoom(e.target.value)
-                                    console.log(idSala)
-                                }}
+                        <span >Sala desse agendamento:
+                            <span data-tooltip="Para alterar este campo entre em contato com o suporte">
+                                <img src={ImgInfo} alt="" />
+                            </span>
+                        </span>
 
-                                data={rooms} />
-                        }
-                            <span>Data inicial:</span>
-                            <input type="date"
-                                value={dataStart}
-                                onChange={e => setDataStart(e.target.value)}
-                            />
-
+                        <input className="input-editar" type="text"
+                            defaultValue={(`${props.nameRoom}`)}
+                            onChange={e => setSalaAgendamento(e.target.value)} disabled
+                        />
+                        <span>Data inicial:</span>
+                        <input type="date"
+                            value={dataStart}
+                            onChange={e => setDataStart(e.target.value)}
+                        />
+                       
                         <span>Horário:</span>
                         <input type="time"
                             /*  value={vidaUtil} */
@@ -98,11 +96,11 @@ function Modal(props) {
                         <span> Função do agendamento: </span>
 
                         <div className="on-off">
-                            <input type="radio" name="nome_do_grupo" value="true" 
-                             onChange={e => setOn(e.target.value)}/>
+                            <input type="radio" name="nome_do_grupo" value="true"
+                                onChange={e => setOn(e.target.value)} />
                             <span>Ligar</span>
-                            <input type="radio" name="nome_do_grupo" value="false" 
-                             onChange={e => setOn(e.target.value)}/>
+                            <input type="radio" name="nome_do_grupo" value="false"
+                                onChange={e => setOn(e.target.value)} />
                             <span> Desligar</span>
                         </div>
                         <div className="button-top">
@@ -111,7 +109,7 @@ function Modal(props) {
                         </div>
                     </form>
 
-                
+
                 </div>
             </div>
         </>

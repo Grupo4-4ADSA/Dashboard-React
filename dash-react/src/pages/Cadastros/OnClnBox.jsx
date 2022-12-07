@@ -29,7 +29,10 @@ function OnClnBox() {
     useEffect(() => {
         api.Api.get("/clnboxex")
             .then(response => {
-                setClnbox(response.data)
+                if (response.status === 200) {
+                    setClnbox(response.data)
+                }
+                setClnbox(response.data[0].clnBox.sala.name)
                 console.log(response)
             })
             .catch(erro => {

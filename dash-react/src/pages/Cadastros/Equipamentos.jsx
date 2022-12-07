@@ -76,7 +76,10 @@ function Equipamento() {
     useEffect(() => {
         api.Api.get(`/rooms/${idPredio}`)
             .then(response => {
-                setRooms(response.data)
+                if (response.status === 200) {
+                    setRooms(response.data)
+                }
+                setRooms(response.data[0].clnBox.sala.name)
             })
             .catch(erro => {
                 console.log(erro)

@@ -36,7 +36,8 @@ function ListaSalas(props) {
                                     `${props.date}`,
                                     `${props.hour}`,
                                     `${props.acao}`,
-                                    `${props.idRoom}`)} >
+                                    `${props.nameRoom}`)}
+                                     >
                                 Editar/</button>
                             <button className="deletar" onClick={() => props.delete(`${props.idScheduling}`)}>Deletar</button>
                         </td>

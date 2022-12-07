@@ -23,12 +23,13 @@ function PainelAgendamentoMarcado({ route, navigation }) {
     const [nameRoom, setNameRoom] = useState([]);
 
 
-    function setVariavel(pIAgendamento, pData, pHorario, pLigar) {
+    function setVariavel(pIAgendamento, pData, pHorario, pLigar, pnameRoom) {
         setIdAgendamento(pIAgendamento)
         setDataStart(pData)
         setHour(pHorario)
         setOn(pLigar)
         setShowModalEditar(true)
+        setNameRoom(pnameRoom)
     }
 
     function setVariavelDeletar(idAgendamentos) {
@@ -84,6 +85,7 @@ function PainelAgendamentoMarcado({ route, navigation }) {
                     hour={hour}
                     on={on}
                     sala={idSala}
+                    nameRoom={nameRoom}
                     closeModalEditar={() =>
                         setShowModalEditar(false)}
                 /> : <></>

@@ -20,7 +20,10 @@ function Home(props) {
     useEffect(() => {
         api.Api.get(`rooms/all/251`)
             .then(response => {
-                setRooms(response.data)
+                if (response.status === 200) {
+                    setRooms(response.data)
+                }
+                setRooms(response.data[0].clnBox.sala.name)
             })
             .catch(erro => {
                 console.log(erro)
@@ -51,7 +54,7 @@ function Home(props) {
                         <div className="box-salas">
                             
                             <div className="box-list">
-                                <h2 className="titulo-lista-salas-home">Salas ativas: {rooms.length}</h2>
+                                <h2 className="titulo-lista-salas-home">Salas cadastradas: {rooms.length}</h2>
                                 <div className="list">
                                     {
                                         rooms.map(rooms => (

@@ -1,5 +1,5 @@
 import React from "react";
-import atencao from '../../html-css-template/imagens/img-list/atencao.png';
+import atencao from '../../html-css-template/imagens/img-list/power.png';
 import { useNavigate } from 'react-router-dom';
 
 function ListaSalas(props) {
